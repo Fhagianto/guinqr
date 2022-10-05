@@ -76,7 +76,7 @@ class LaratrustSeeder extends Seeder
 
     /**
      * Truncates all the laratrust tables and the users table
-     *
+     *testcom
      * @return  void
      */
     public function truncateLaratrustTables()
