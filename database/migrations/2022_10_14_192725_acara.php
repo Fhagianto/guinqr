@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Acara extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('acara', function (Blueprint $table) {
+            $table->id('id_acara');
+            $table->string('nama_acara');
+            $table->string('keterangan');
+            $table->string('email_acara')->unique();
+            $table->date('tgl_start');
+            $table->date('tgl_end');
+            $table->integer('id_user_acara');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('acara');
+    }
+}
