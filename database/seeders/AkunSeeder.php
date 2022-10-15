@@ -21,28 +21,28 @@ class AkunSeeder extends Seeder
                 'email' => 'sadmin@gmail.com',
                 'level' => 'superadmin',
                 'password' => bcrypt('sadmin123'),
-            ],   
+            ],
             [
                 'username' => 'admin',
                 'name' => 'Clara',
                 'email' => 'admin@gmail.com',
                 'level' => 'admin',
                 'password' => bcrypt('admin123'),
-            ],   
+            ],
             [
                 'username' => 'security',
-                'name' => 'rasswe',
+                'name' => 'hadi kusuma dinata',
                 'email' => 'security@gmail.com',
                 'level' => 'security',
                 'password' => bcrypt('security123'),
-            ],   
+            ],
             [
                 'username' => 'useracara',
                 'name' => 'Feby',
                 'email' => 'useracara@gmail.com',
                 'level' => 'useracara',
                 'password' => bcrypt('useracara123'),
-            ]   
+            ]
             ];
             foreach ($user as $key => $value) {
                 User::create($value);

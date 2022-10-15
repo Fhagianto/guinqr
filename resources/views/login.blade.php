@@ -8,7 +8,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <title>Login Form</title>
+        <title>E-GUIN QR | Login</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -99,7 +99,7 @@
                     </div>
                 </main>
             </div>
- 
+
         </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
