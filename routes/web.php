@@ -22,9 +22,6 @@ use App\Http\Controllers\useracaraController;
 Route::get('/', function () {
     return view('welcome',["title"=>"E-GUIN QR | Welcome"]);
 });
-
-// Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-// return ["title"=>"E-GUIN QR | Login"];
 Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login','App\Http\Controllers\AuthController@proses_login')->name('proses_login');
 Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout');
