@@ -8,6 +8,6 @@ class useracaraController extends Controller
 {
     public function index()
     {
-        return view('useracara.dashboard2');
+        return view('useracara.dashboard');
     }
 }

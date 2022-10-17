@@ -110,49 +110,34 @@
             </ul>
           </li>
           @endcan
-          <li class="nav-header">Setting</li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Tambah User</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Katalog Obat</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Stock Obat</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>OP Name Barang</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Stock Obat</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Transaksi Penjualan</p>
-            </a>
-          </li>
+          @can('isSecurity')
+            <li class="nav-header ">Menu</li>
+            <li class="nav-item ">
+                <a href="/security" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt-fast"></i>
+                <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Data tamu Unit</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Data tamu acara</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/security/scan" class="nav-link">
+                <i class="nav-icon fas fa-qrcode"></i>
+                <p>Scan Qr Code</p>
+                </a>
+            </li>
+          @endcan
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -37,6 +37,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->level == 'useracara';
         });
 
+        Gate::define('isSecurity', function($user) {
+            return $user->level == 'security';
+        });
+
         //
     }
 }

@@ -36,5 +36,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:useracara']], function(){
         Route::get('useracara','App\Http\Controllers\useracaraController@index')->name('useracara');
     });
+    Route::group(['middleware' => ['cek_login:security']], function(){
+        Route::get('security','App\Http\Controllers\securityController@dashboard')->name('security');
+        Route::get('security/scan','App\Http\Controllers\securityController@scan')->name('scan');
+    });
 });
 Route::resource('acara', AcaraController::class);
