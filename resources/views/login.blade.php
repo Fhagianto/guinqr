@@ -55,6 +55,7 @@
                                                 <label class="small mb-1" for="inputEmailAddress">Username</label>
                                                 <input
                                                     class="form-control py-4"
+                                                    autofocus="true"
                                                     id="inputEmailAddress"
                                                     name="username"
                                                     type="text"
