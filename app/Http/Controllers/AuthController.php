@@ -21,7 +21,7 @@ class AuthController extends Controller
             ]);
 
             $kredensil = $request->only('username','password');
-//disini ngecek role
+            //disini ngecek role
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
                 if ($user->level == 'superadmin') {
@@ -35,7 +35,7 @@ class AuthController extends Controller
                 }
                 return redirect()->intended('/');
             }
-            return redirect('login');
+            return redirect('login')->with('error',"Salah Username / Password");
     }
     public function logout(Request $request)
     {

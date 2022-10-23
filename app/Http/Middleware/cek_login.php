@@ -20,13 +20,13 @@ class cek_login
         if (!Auth::check()) {
             return redirect('login');
           }
-  
+
           $user = Auth::user();
-  
+
           if($user->level == $role){
               return $next($request);
           }
-              return redirect('login')->with('error',"kamu gaada akses syg");
-      
+              return redirect('login')->with('error',"Kamu Tidak ada akses");
+
     }
 }

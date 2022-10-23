@@ -16,7 +16,49 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
             crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="">
+        @if(session('error'))
+        <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
+        <script>
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: '{{session('error')}}',
+            })
+        </script>
+        @endif
+        @error('login_gagal')
+        <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
+        <script>
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+            Toast.fire({
+                icon: 'info',
+                title: '{{ $message }}',
+            })
+        </script>
+        @enderror
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -25,33 +67,20 @@
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     {{-- Error Alert --}}
-                                    @if(session('error'))
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        {{session('error')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    @endif
-                                    <div class="card-header">
-                                        <h3 class="text-center font-weight-light my-4">Login</h3>
-                                    </div>
+                                    <div class="card card-outline card-primary">
+                                        <div class="card-header text-center">
+                                            {{-- <img src="{{ asset ('img') }}/logo2.svg"height="100" width="100">
+                                            <br> --}}
+                                            <a  class="h1"><b>E-GUIN</b>QR</a>
+                                            <br>
+                                            <small>Elektronik Guest Invitation QR code</small>
+                                        </div>
                                     <div class="card-body">
-                                        <form action="{{url('proses_login')}}" method="POST" id="logForm">
-                                            {{ csrf_field() }}
+                                        <form action="{{url('proses_login')}}" method="POST" id="logForm"
+                                        style="background-image: url('{{ asset ('img') }}/logo2.svg');
+                                        background-repeat: no-repeat;">
+                                            @csrf
                                             <div class="form-group">
-                                                @error('login_gagal')
-                                                    {{-- <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span> --}}
-                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                        {{-- <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span> --}}
-                                                        <span class="alert-inner--text"><strong>Warning!</strong> {{ $message }}</span>
-                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    @enderror
                                                 <label class="small mb-1" for="inputEmailAddress">Username</label>
                                                 <input
                                                     class="form-control py-4"
@@ -90,8 +119,11 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small">
-                                            {{-- <a href="{{url('register')}}">Belum Punya Akun? Daftar!</a> --}}
+                                        {{-- <div class="small">
+                                            <a href="{{url('register')}}">Belum Punya Akun? Daftar!</a>
+                                        </div> --}}
+                                        <div class="text-center d-none d-md-inline">
+                                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -102,12 +134,5 @@
             </div>
 
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-        <script src="{{url('assets/js/scripts.js')}}"></script>
     </body>
 </html>
