@@ -26,7 +26,7 @@ class cek_login
           if($user->level == $role){
               return $next($request);
           }
-              return redirect('login')->with('error',"Kamu Tidak ada akses");
+            return redirect('login')->with('error',"Kamu Tidak ada akses");
 
     }
 }
