@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\useracaraController;
+use App\Http\Controllers\TamuController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,8 @@ Route::get('/', function () {
 Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login','App\Http\Controllers\AuthController@proses_login')->name('proses_login');
 Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout');
+
+Route::get('tamu_unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
