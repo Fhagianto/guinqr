@@ -95,7 +95,7 @@
                                         <div class="card-header text-center">
                                             {{-- <img src="{{ asset ('img') }}/logo2.svg"height="100" width="100">
                                             <br> --}}
-                                            <a  class="h1"><b>E-GUIN</b>QR</a>
+                                            <a  class="h1" href="/" style="text-decoration: none"><b>E-GUIN</b>QR</a>
                                             <br>
                                             <small>Elektronik Guest Invitation QR code</small>
                                         </div>

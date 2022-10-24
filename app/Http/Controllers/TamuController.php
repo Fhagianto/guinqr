@@ -10,4 +10,8 @@ class TamuController extends Controller
     {
         return view('tamu\tamu-unit');
     }
+    public function tamu_acara()
+    {
+        return view('tamu\tamu-acara');
+    }
 }

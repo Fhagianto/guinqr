@@ -30,7 +30,7 @@
 
 <body class="">
     <div class="header">
-        <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
+        <div class="relative flex items-top justify-center min-h-screen items-center py-4 sm:pt-0">
             @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
@@ -46,20 +46,23 @@
             @endif
             <div class="container ">
                 <div class="row align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h1 class="text-white">E-GUIN QR Code</h1>
-                        <p>Elektronik Guest Invitation QR code</p>
+                    <div class="col-md-5 text-white">
+                        <a  class="h1"><b>E-GUIN</b>QR</a>
+                        <br>
+                        <a class="p">Elektronik Guest Invitation QR code</a>
                     </div>
                     <div class="col-md-3">
                         <a href="\tamu_unit">
                         <button type="button" class="btn btn-block btn-light">Tamu Unit</button>
-                        <p></p>
                         </a>
                     </div>
+                    <div class="col-md-1">
+                        <p></p>
+                    </div>
+
                     <div class="col-md-3">
                         <a href="\tamu_acara">
                         <button type="button" class="btn btn-block btn-light">Tamu Acara</button>
-                        <p></p>
                         </a>
                     </div>
                 </div>
@@ -95,7 +98,7 @@
                         <p></p>
                         <h3>Safety Induction</h3>
                         <p></p>
-                        <p>Video Safety Induction Politeknik Negeri Batam berisi informasi mengenai dasar-dasar Keselamatan dan Kesehatan Kerja (K3) bagi seluruh mahasiswa, karyawan, tamu, maupun kontraktor yang berada di lingkungan kampus Politeknik Negeri Batam. Mari bersama membudayakan K3 agar dapat belajar dan bekerja secara aman, nyaman dan sehat.</p>
+                        <p style="text-align: justify">Video Safety Induction Politeknik Negeri Batam berisi informasi mengenai dasar-dasar Keselamatan dan Kesehatan Kerja (K3) bagi seluruh mahasiswa, karyawan, tamu, maupun kontraktor yang berada di lingkungan kampus Politeknik Negeri Batam. Mari bersama membudayakan K3 agar dapat belajar dan bekerja secara aman, nyaman dan sehat.</p>
                     </div>
                 </div>
 
@@ -110,7 +113,7 @@
                     <div class="col-md-6 ">
                         <h3>Informasi Layanan Publik</h3>
                         <p></p>
-                        <p>Hubungi kami untuk seputar pertanyaan informasi publik Polibatam.</p>
+                        <p style="text-align: justify">Hubungi kami untuk seputar pertanyaan informasi publik Polibatam.</p>
                         <a href="https://www.polibatam.ac.id/informasi-publik/">
                             <button type="button" class="btn btn-primary ">Informasi Layanan Publik</button>
                         </a>

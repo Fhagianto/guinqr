@@ -28,6 +28,7 @@ Route::post('proses_login','App\Http\Controllers\AuthController@proses_login')->
 Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
 Route::get('tamu_unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
+Route::get('tamu_acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
