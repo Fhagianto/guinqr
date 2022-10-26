@@ -49,6 +49,7 @@
                     <div class="col-md-5 text-white">
                         <a  class="h1"><b>E-GUIN</b>QR</a>
                         <br>
+                        <a class="p">Elektronik Guest Invitation QR code</a>
                     </div>
                     <div class="col-md-3">
                         <a href="\tamu_unit">
