@@ -16,6 +16,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           @can('isSadmin')
+          <li class="nav-item ">
+            <a href="/superadmin" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt-fast"></i>
+            <p>Dashboard</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -27,30 +33,24 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/unit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Katalog Obat</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Stok Obat</p>
+                  <p>Data Unit</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Pengeluaran</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Penjualan</p>
+                  <p>Data Acara</p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item ">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>User Management</p>
+            </a>
           </li>
           @endcan
           @can('isAdmin')

@@ -19,7 +19,6 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        @can('isSadmin')
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -82,7 +81,6 @@
           </div>
           <!-- ./col -->
         </div>
-        @endcan
         <!-- /.row -->
         <!-- Main row -->
       </div><!-- /.container-fluid -->

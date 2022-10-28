@@ -100,9 +100,7 @@
                                             <small>Elektronik Guest Invitation QR code</small>
                                         </div>
                                     <div class="card-body">
-                                        <form action="#" method="POST" id="Form"
-                                        style="background-image: url('{{ asset ('img') }}/logo2.svg');
-                                        background-repeat: no-repeat;">
+                                        <form action="#" method="POST" id="Form">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -185,13 +183,9 @@
                                                             required
                                                             placeholder="Masukkan Unit Tujuan">
                                                             <option selected="selected"></option>
-                                                            <option>Alabama</option>
-                                                            <option>Alaska</option>
-                                                            <option>California</option>
-                                                            <option>Delaware</option>
-                                                            <option>Tennessee</option>
-                                                            <option>Texas</option>
-                                                            <option>Washington</option>
+                                                            @foreach ($units as $units)
+                                                            <option value="{{ $units->id_unit }}" >{{ $units->nama_unit }}</option>
+                                                            @endforeach
                                                         </select>
                                                         @if($errors->has('inputTujuan'))
                                                         <span class="error">{{ $errors->first('inputTujuan') }}</span>
