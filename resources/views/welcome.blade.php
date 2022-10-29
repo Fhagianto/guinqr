@@ -8,14 +8,14 @@
     <title>{{ $title }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="preload" id="kadence-header-preload" href="{{ asset ('politeknik') }}/header-min-css.css" as="style">
+    <link rel="preload" id="kadence-footer-preload" href="{{ asset ('politeknik') }}/fotter-min-css.css" as="style">
+    <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <link rel='stylesheet' id='kadence-global-css' href="{{ asset ('politeknik') }}/global-min-css.css" media='all' />
-    <link rel="preload" id="kadence-header-preload" href="{{ asset ('politeknik') }}/header-min-css.css" as="style">
-    <link rel="preload" id="kadence-footer-preload" href="{{ asset ('politeknik') }}/footer-min-css.css" as="style">
     <link rel="stylesheet" id='kadence-global-inline-css' href="{{ asset ('politeknik') }}/kadence-global-inline-css.css" as="style">
     <link rel="stylesheet" id='normalize-css' href="{{ asset ('politeknik') }}/normalize.css" as="style">
     <link rel="stylesheet" id='parallax-css' href="{{ asset ('plugins') }}/parallax/parallax.css" as="style">
@@ -78,56 +78,70 @@
                     <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
                     <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                     <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#f7f7f7" />
                 </g>
             </svg>
         </div>
     </div>
     <p></p>
     <link rel="stylesheet" id="kadence-header-css" href="{{ asset ('politeknik') }}/header-min-css.css" media="all">
-    <link rel="stylesheet" id="kadence-footer-css" href="{{ asset ('politeknik') }}/fotter-min-css.css" media="all">
+    <link rel="stylesheet" id="kadence-footer-css" href="{{ asset ('politeknik') }}/fotter-min-css.css" media="all" >
+    <div >
+        <div class="container">
+            <div class="card callout callout-info">
+                <div class="card-body box-profile">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 ">
+                            <iframe width=100% height="250" src="https://www.youtube.com/embed/gCRHKlIOc6I" title="Video Safety Induction di Lingkungan Politeknik Negeri Batam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-md-6">
+                            <p></p>
+                            <h3>Safety Induction</h3>
+                            <p></p>
+                            <p style="text-align: justify">Video Safety Induction Politeknik Negeri Batam berisi informasi mengenai dasar-dasar Keselamatan dan Kesehatan Kerja (K3) bagi seluruh mahasiswa, karyawan, tamu, maupun kontraktor yang berada di lingkungan kampus Politeknik Negeri Batam. Mari bersama membudayakan K3 agar dapat belajar dan bekerja secara aman, nyaman dan sehat.</p>
+                        </div>
+                    </div>
 
-    <div class="container">
-        <div class="card callout callout-info">
-            <div class="card-body box-profile">
-                <div class="row align-items-center">
-                    <div class="col-md-6 ">
-                        <iframe width=100% height="250" src="https://www.youtube.com/embed/gCRHKlIOc6I" title="Video Safety Induction di Lingkungan Politeknik Negeri Batam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-6">
-                        <p></p>
-                        <h3>Safety Induction</h3>
-                        <p></p>
-                        <p style="text-align: justify">Video Safety Induction Politeknik Negeri Batam berisi informasi mengenai dasar-dasar Keselamatan dan Kesehatan Kerja (K3) bagi seluruh mahasiswa, karyawan, tamu, maupun kontraktor yang berada di lingkungan kampus Politeknik Negeri Batam. Mari bersama membudayakan K3 agar dapat belajar dan bekerja secara aman, nyaman dan sehat.</p>
-                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="card callout callout-info">
-            <div class="card-body box-profile">
-                <div class="row align-items-center">
-                    <div class="col-md-6 ">
-                        <h3>Informasi Layanan Publik</h3>
-                        <p></p>
-                        <p style="text-align: justify">Hubungi kami untuk seputar pertanyaan informasi publik Polibatam.</p>
-                        <a href="https://www.polibatam.ac.id/informasi-publik/">
-                            <button type="button" class="btn btn-primary ">Informasi Layanan Publik</button>
-                        </a>
+        <div class="container">
+            <div class="card callout callout-info">
+                <div class="card-body box-profile">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 ">
+                            <h3>Informasi Layanan Publik</h3>
+                            <p></p>
+                            <p style="text-align: justify">Hubungi kami untuk seputar pertanyaan informasi layanan Polibatam.</p>
+                            <a href="https://www.polibatam.ac.id/informasi-publik/">
+                                <button type="button" class="btn btn-primary ">Informasi Layanan Publik</button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <p></p>
+                            <iframe width=100% height="250" src="https://www.youtube.com/embed/-YZk9CvznuU" title="Video Layanan Pusat Informasi Polibatam saat New Normal (Kenormalan Baru)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <p></p>
-                        <iframe width=100% height="250" src="https://www.youtube.com/embed/-YZk9CvznuU" title="Video Layanan Pusat Informasi Polibatam saat New Normal (Kenormalan Baru)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+
                 </div>
-
             </div>
         </div>
-    </div>
 
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgb(24, 58, 100,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgb(24, 58, 100,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgb(24, 58, 100,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(24, 58, 100)" />
+                </g>
+            </svg>
+        </div>
+    </div>
     <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="site-footer-wrap">
             <div class="site-top-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default" data-section="kadence_customizer_footer_top">
@@ -254,7 +268,6 @@
             </div>
         </div>
     </footer>
-    <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

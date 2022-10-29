@@ -212,9 +212,12 @@
     <!--Header ends-->
 
     <!--Content starts-->
-    <div class="content flex">
-      <p>PBL E-GUIN | Politeknik Batam</p>
-    </div>
+    <footer class="main-footer" style="margin-left: 0;">
+        <strong>PBL E-GUIN | Politeknik Batam</strong>
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 1.0
+        </div>
+    </footer>
     <!--Content ends-->
     <script src="{{ asset ('AdminLTE') }}/plugins/daterangepicker/daterangepicker.js"></script>
     <script src="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.js"></script>

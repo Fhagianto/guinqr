@@ -6,30 +6,26 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <meta name="description" content=""/>
-        <meta name="author" content=""/>
         <link rel="stylesheet" id='parallax-css' href="{{ asset ('plugins') }}/parallax/parallax.css">
         <!-- Google Font: Source Sans Pro -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/fontawesome-free/css/all.min.css">
         <!-- daterange picker -->
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/daterangepicker/daterangepicker.css">
         <!-- iCheck for checkboxes and radio inputs -->
-        <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-        <!-- Bootstrap Color Picker -->
-        <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+        {{-- <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> --}}
         <!-- Tempusdominus Bootstrap 4 -->
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
         <!-- Select2 -->
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/select2/css/select2.min.css">
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
         <!-- Bootstrap4 Duallistbox -->
-        <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+        {{-- <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css"> --}}
         <!-- BS Stepper -->
-        <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/bs-stepper/css/bs-stepper.min.css">
+        {{-- <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/bs-stepper/css/bs-stepper.min.css"> --}}
         <!-- dropzonejs -->
-        <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/dropzone/min/dropzone.min.css">
+        {{-- <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/plugins/dropzone/min/dropzone.min.css"> --}}
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset ('AdminLTE') }}/dist/css/adminlte.min.css">
         <link
@@ -37,7 +33,9 @@
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+        </script>
+
     </head>
     <body class="">
         @if(session('error'))
@@ -255,12 +253,13 @@
     <!--Header ends-->
 
     <!--Content starts-->
-    <div class="content flex">
-      <p>PBL E-GUIN | Politeknik Batam</p>
-    </div>
+    <footer class="main-footer" style="margin-left: 0;">
+        <strong>PBL E-GUIN | Politeknik Batam</strong>
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 1.0
+        </div>
+    </footer>
     <!--Content ends-->
-    <script src="{{ asset ('AdminLTE') }}/plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/select2/js/select2.full.min.js"></script>
@@ -268,12 +267,12 @@
     <script src="{{ asset ('AdminLTE') }}/plugins/moment/moment.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/inputmask/jquery.inputmask.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/bs-stepper/js/bs-stepper.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/dropzone/min/dropzone.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/dist/js/adminlte.min.js?v=3.2.0"></script>
+
     <script>
         $(function () {
           //Initialize Select2 Elements
