@@ -29,6 +29,8 @@ Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout'
 
 Route::get('tamu_unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
 Route::get('tamu_acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
+Route::get('qr',[TamuController::class, 'qr_view'])->name('qr_view');
+Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){

@@ -13,4 +13,7 @@ class Unit extends Model
         'keterangan',
         'email_unit',
     ];
+    public function tamuunit(){
+        return $this->hasMany('App\Models\TamuUnit');
+    }
 }

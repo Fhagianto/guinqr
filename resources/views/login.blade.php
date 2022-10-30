@@ -117,6 +117,27 @@
             })
         </script>
         @endif
+        @if(session('pesan'))
+        <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
+        <script>
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+            Toast.fire({
+                icon: 'info',
+                title: '{{session('pesan')}}',
+            })
+        </script>
+        @endif
         @error('login_gagal')
         <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
         <script>

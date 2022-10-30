@@ -41,7 +41,6 @@ class AuthController extends Controller
     {
         $request->session()->flush();
         Auth::logout();
-        return Redirect('login');
-        # code...
+        return Redirect('login')->with('pesan',"Logout Berhasil");
     }
 }
