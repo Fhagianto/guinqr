@@ -17,7 +17,7 @@ class Acara extends Migration
             $table->id('id_acara');
             $table->string('nama_acara');
             $table->string('keterangan');
-            $table->string('email_acara')->unique();
+            $table->string('email_acara');
             $table->date('tgl_start');
             $table->date('tgl_end');
             $table->integer('id_user_acara');
