@@ -23,7 +23,7 @@ class cek_login
 
           $user = Auth::user();
 
-          if($user->level == $role){
+          if($user->level == "superadmin" ||$user->level =="admin"||$user->level == "useracara"||$user->level == "security"){
               return $next($request);
           }
             return redirect('login')->with('error',"Kamu Tidak ada akses");

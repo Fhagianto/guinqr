@@ -89,9 +89,8 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     {{-- Error Alert --}}
-                                    <div class="card card-outline card-primary">
+                                    <div class="card card-outline card-primary shadow-lg border-0 rounded-lg mt-5">
                                         <div class="card-header text-center">
                                             {{-- <img src="{{ asset ('img') }}/logo2.svg"height="100" width="100">
                                             <br> --}}
@@ -183,7 +182,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </main>

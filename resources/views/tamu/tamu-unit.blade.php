@@ -87,9 +87,8 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     {{-- Error Alert --}}
-                                    <div class="card card-outline card-primary">
+                                    <div class="card card-outline card-primary shadow-lg border-0 rounded-lg mt-5">
                                         <div class="card-header text-center">
                                             {{-- <img src="{{ asset ('img') }}/logo2.svg"height="100" width="100">
                                             <br> --}}
@@ -98,7 +97,7 @@
                                             <small>Elektronik Guest Invitation QR code</small>
                                         </div>
                                     <div class="card-body">
-                                        <form action="#" method="POST" id="Form">
+                                        <form action="{{ route('create_tamu_unit') }}" method="POST" id="Form">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -191,23 +190,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="inputTanggal">Tanggal</label>
-                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                                         <input
-                                                            class="form-control datetimepicker-input"
-                                                            data-inputmask-alias="datetime"
-                                                            data-inputmask-inputformat="mm/dd/yyyy"
-                                                            data-mask=""
-                                                            inputmode="numeric"
+                                                            class="form-control"
                                                             id="inputTanggal"
                                                             name="inputTanggal"
-                                                            type="text"
+                                                            type="date"
                                                             required
-                                                            data-target="#reservationdate"
                                                             placeholder="Masukkan Tanggal"/>
-                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                            </div>
-                                                        </div>
                                                         @if($errors->has('inputTanggal'))
                                                         <span class="error">{{ $errors->first('inputTanggal') }}</span>
                                                         @endif
@@ -224,7 +213,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </main>
@@ -266,7 +254,6 @@
     <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/moment/moment.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <script src="{{ asset ('AdminLTE') }}/plugins/daterangepicker/daterangepicker.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
     <script src="{{ asset ('AdminLTE') }}/plugins/bs-stepper/js/bs-stepper.min.js"></script>
@@ -282,23 +269,6 @@
           $('.select2bs4').select2({
             theme: 'bootstrap4'
           })
-
-          //Datemask dd/mm/yyyy
-          $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-          //Datemask2 mm/dd/yyyy
-          $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-          //Money Euro
-          $('[data-mask]').inputmask()
-
-          //Date picker
-          $('#reservationdate').datetimepicker({
-              format: 'L'
-          });
-
-          //Date and time picker
-          $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
-
-
         })
 
       </script>

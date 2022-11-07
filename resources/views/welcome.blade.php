@@ -52,7 +52,7 @@
                         <a class="p">Elektronik Guest Invitation QR code</a>
                     </div>
                     <div class="col-md-3">
-                        <a href="\tamu_unit">
+                        <a href="/registrasi/tamu-unit">
                         <button type="button" class="btn btn-block btn-light">Tamu Unit</button>
                         </a>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <a href="\tamu_acara">
+                        <a href="/registrasi/tamu-acara">
                         <button type="button" class="btn btn-block btn-light">Tamu Acara</button>
                         </a>
                     </div>

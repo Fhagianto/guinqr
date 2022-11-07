@@ -100,12 +100,15 @@
                                     <div class="card-body">
                                         <div class=" text-center">
                                             <div>
-                                                {!! QrCode::size(250)->generate(Request::url()); !!}
+                                                {{-- {!! $qrcode !!} --}}
+                                                {{-- {{ dd($tamu) }} --}}
+                                                {{-- <img src="data:image/png;base64, {{ base64_encode(QrCode::size(250)->format('png')->generate($tamu))}}"> --}}
+                                                {{ QrCode::format('svg')->size(250)->generate($tamu)}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
-
+                                        {{-- <button class="btn" href="{{ QrCode::format('svg')->size(250)->generate(bcrypt($tamu))}}.svg"><i class="fa fa-download"></i> Download</button> --}}
                                     </div>
                                 </div>
                             </div>

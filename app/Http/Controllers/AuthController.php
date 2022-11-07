@@ -25,13 +25,13 @@ class AuthController extends Controller
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
                 if ($user->level == 'superadmin') {
-                    return redirect()->intended('superadmin');
+                    return redirect()->intended('dashboard');
                 } elseif ($user->level == 'admin') {
-                    return redirect()->intended('admin');
+                    return redirect()->intended('dashboard');
                 } elseif ($user->level == 'security') {
-                    return redirect()->intended('security');
+                    return redirect()->intended('dashboard');
                 } elseif ($user->level == 'useracara') {
-                    return redirect()->intended('useracara');
+                    return redirect()->intended('dashboard');
                 }
                 return redirect()->intended('/');
             }

@@ -27,23 +27,26 @@ Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login','App\Http\Controllers\AuthController@proses_login')->name('proses_login');
 Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout');
 
-Route::get('tamu_unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
-Route::get('tamu_acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
+Route::get('registrasi/tamu-unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
+Route::get('registrasi/tamu-acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
+Route::post('registrasi/tamu-unit/create',[TamuController::class,'create_tamu_unit'])->name('create_tamu_unit') ;
+Route::post('registrasi/tamu-acara/create',[TamuController::class,'create_tamu_acara'])->name('create_tamu_acara') ;
+
 Route::get('qr',[TamuController::class, 'qr_view'])->name('qr_view');
 Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
-        Route::get('superadmin','App\Http\Controllers\SuperadminController@index')->name('superadmin');
+        Route::get('dashboard','App\Http\Controllers\SuperadminController@index')->name('superadmin');
     });
     Route::group(['middleware' => ['cek_login:admin']], function(){
-        Route::get('admin','App\Http\Controllers\AdminController@index')->name('admin');
+        Route::get('dashboard','App\Http\Controllers\AdminController@index')->name('admin');
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){
-        Route::get('useracara','App\Http\Controllers\useracaraController@index')->name('useracara');
+        Route::get('dashboard','App\Http\Controllers\useracaraController@index')->name('useracara');
     });
     Route::group(['middleware' => ['cek_login:security']], function(){
-        Route::get('security','App\Http\Controllers\securityController@dashboard')->name('security');
+        Route::get('dashboard','App\Http\Controllers\securityController@dashboard')->name('security');
         Route::get('security/scan','App\Http\Controllers\securityController@scan')->name('scan');
     });
 });

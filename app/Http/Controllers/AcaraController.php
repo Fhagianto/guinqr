@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\acara;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AcaraController extends Controller
 {
@@ -41,14 +42,16 @@ class AcaraController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $model = new acara;
         $model->nama_acara = $request->nama_acara;
         $model->keterangan = $request->keterangan;
         $model->email_acara = $request->email_acara;
         $model->tgl_start = $request->tgl_start;
         $model->tgl_end = $request->tgl_end;
+        $model->id_user_acara = $user->id;
         $model->save();
-        
+
         return redirect('acara');
     }
 
@@ -93,7 +96,7 @@ class AcaraController extends Controller
         $model->tgl_start = $request->tgl_start;
         $model->tgl_end = $request->tgl_end;
         $model->save();
-        
+
         return redirect('acara');
     }
 
