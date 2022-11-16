@@ -9,6 +9,7 @@ use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\useracaraController;
 use App\Http\Controllers\TamuController;
+use App\Http\Controllers\securityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,8 @@ Route::get('/', function () {
     return view('welcome',["title"=>"E-GUIN QR | Welcome"]);
 });
 Route::get('login',[AuthController::class,'index'])->name('login') ;
-Route::post('proses_login','App\Http\Controllers\AuthController@proses_login')->name('proses_login');
-Route::get('logout','App\Http\Controllers\AuthController@logout')->name('logout');
+Route::post('proses_login',[AuthController::class,'proses_login'])->name('proses_login');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('registrasi/tamu-unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
 Route::get('registrasi/tamu-acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
@@ -35,19 +36,23 @@ Route::post('registrasi/tamu-acara/create',[TamuController::class,'create_tamu_a
 Route::get('qr',[TamuController::class, 'qr_view'])->name('qr_view');
 Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
+
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
-        Route::get('dashboard','App\Http\Controllers\SuperadminController@index')->name('superadmin');
+        Route::get('dashboard',[SuperadminController::class,'index'])->name('superadmin');
     });
     Route::group(['middleware' => ['cek_login:admin']], function(){
-        Route::get('dashboard','App\Http\Controllers\AdminController@index')->name('admin');
+        Route::get('dashboard',[AdminController::class,'index'])->name('admin');
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){
-        Route::get('dashboard','App\Http\Controllers\useracaraController@index')->name('useracara');
+        Route::get('dashboard',[useracaraController::class,'index'])->name('useracara');
     });
     Route::group(['middleware' => ['cek_login:security']], function(){
-        Route::get('dashboard','App\Http\Controllers\securityController@dashboard')->name('security');
-        Route::get('security/scan','App\Http\Controllers\securityController@scan')->name('scan');
+        Route::get('dashboard',[securityController::class,'dashboard'])->name('security');
+        Route::get('security/scan',[securityController::class,'scan'])->name('scan');
+        Route::post('security/validasiQrcode',[securityController::class,'validasiQrcode'])->name('validasiQrcode');
+        Route::get('security/qrcode_view',[securityController::class,'qrcode_view'])->name('qrcode_view');
+
     });
 });
 Route::resource('acara', AcaraController::class);
