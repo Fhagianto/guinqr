@@ -100,7 +100,8 @@
                                 text : 'data ada'
                             });
                             // window.location.href = data.redirect;
-                            window.location = '/security/qrcode_view';
+                            // window.location = '/security/qrcode_view';
+                            window.location.href = "/security/qrcode_view?idT=" + decodedText;
                         }
                     },
                     error: function(xhr) {
@@ -116,7 +117,7 @@
     }
 
     function onScanFailure(error) {
-        console.warn(`Code scan error = ${error}`);
+        // console.warn(`Code scan error = ${error}`);
     }
     let html5QrcodeScanner = new Html5QrcodeScanner(
     "reader",

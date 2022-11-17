@@ -18,7 +18,11 @@ class securityController extends Controller
     }
     public function qrcode_view()
     {
-        return view('security.qrcode-view');
+        // $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get();
+        $tamuunit = TamuUnit::where("id_tamu_unit", $_GET['idT'])->get();
+        return view('security.qrcode-view')
+        ->with('tamuunit',$tamuunit)
+        ;
     }
     public function validasiQrcode(Request $request){
 
@@ -41,13 +45,13 @@ class securityController extends Controller
         // return redirect()->route('qrcode_view',['tamuunit' => $tamuunit,]);
         // return redirect()->route('qrcode_view')->'tamuunit' => $tamuunit;
         // return redirect()->route('qrcode_view')->with(['tamuunit' => $tamuunit,]);
-        return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
+        // return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
         // return view('security.qrcode-view'. compact('tamuunit'));
         // $tamuunit = $tamuunit;
         // return view('security.qrcode-view'. compact($tamuunit));
-        // return response()->json([
-        //     "berhasil" => "data ada",
-        // ]);
+        return response()->json([
+            "berhasil" => "data ada",
+        ]);
         // return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
     }
 }

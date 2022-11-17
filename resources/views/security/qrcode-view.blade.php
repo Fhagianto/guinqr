@@ -1,8 +1,18 @@
 @extends('layout.template')
 @section('head')
     <title>E-GUIN QR | Scan QR CODE</title>
+
 @endsection
+
 @section('main')
+{{-- {{ $id = ; }} --}}
+{{-- {{ dd($id) }} --}}
+{{-- {{ $tamuunit = TamuUnit::where("id_tamu_unit", $id)->get(); }} --}}
+{{-- {!! $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get(); !!} --}}
+{{-- {{ $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get(); }} --}}
+{{-- {{ dd($tamuunit) }} --}}
+
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -36,16 +46,13 @@
                             <th>tanggal</th>
                         </tr>
                         <tr>
-                            {{-- {{ if ($tamuunit = null) {
-                                $tamuunit = ''
-                            }  }} --}}
-                            {{-- <td>{{ $tamuunit->nama }}</td>
-                            <td>{{ $tamuunit->no_telpon }}</td>
-                            <td>{{ $tamuunit->email }}</td>
-                            <td>{{ $tamuunit->keperluan }}</td>
-                            <td>{{ $tamuunit->instansi }}</td>
-                            <td>{{ $tamuunit->id_unit }}</td>
-                            <td>{{ $tamuunit->tgl }}</td> --}}
+                            <td>{{ $tamuunit[0]->nama }}</td>
+                            <td>{{ $tamuunit[0]->no_telpon }}</td>
+                            <td>{{ $tamuunit[0]->email }}</td>
+                            <td>{{ $tamuunit[0]->keperluan }}</td>
+                            <td>{{ $tamuunit[0]->instansi }}</td>
+                            <td>{{ $tamuunit[0]->id_unit }}</td>
+                            <td>{{ $tamuunit[0]->tgl }}</td>
                         </tr>
                         {{-- "id_tamu_unit" => 8
                         "nama" => "test nama"
@@ -69,7 +76,5 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
-
-
 @endsection
+
