@@ -11,7 +11,7 @@
 {{-- {!! $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get(); !!} --}}
 {{-- {{ $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get(); }} --}}
 {{-- {{ dd($tamuunit) }} --}}
-
+{{-- {{ dd(Auth::user()->id) }} --}}
 
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -67,8 +67,13 @@
                 </table>
             </div>
             <div class="card-footer text-center">
-                <button type="button" class="btn btn-primary" href="#">Chek-in</button>
-                <a class="btn btn-danger" href="/security/scan" role="button">Kembali</a>
+                <form action="{{url('security/registrasi/tamu-unit')}}" method="POST" id="regForm">
+                    @csrf
+                    <input type="hidden" id="id_tamu_unit" name="id_tamu_unit" value='{{ $tamuunit[0]->id_tamu_unit }}'>
+                    <input type="hidden" id="id_user" name="id_user" value='{{ Auth::user()->id }}'>
+                    <button class="btn btn-primary" type="submit">Cek-In</button>
+                    <a class="btn btn-danger" href="/security/scan" role="button">Kembali</a>
+                </form>
             </div>
         </div>
         <div class="card card-outline card-secondary">

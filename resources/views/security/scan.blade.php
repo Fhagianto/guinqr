@@ -3,6 +3,7 @@
     <title>E-GUIN QR | Scan QR CODE</title>
 @endsection
 @section('main')
+{{-- {{ dd(session()) }} --}}
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -64,6 +65,18 @@
 @section('footer')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset ('plugins') }}/scanner/html5-qrcode.min.js"></script>
+@if(session('pesan'))
+
+
+    <script>
+        Swal.fire({
+            icon : 'success',
+            type :'success',
+            title : 'Success',
+            text : 'data tamu sudah di tambahkan'
+        });
+    </script>
+@endif
 <script>
     function onScanSuccess(decodedText, decodedResult) {
         $("#result").val(decodedText);

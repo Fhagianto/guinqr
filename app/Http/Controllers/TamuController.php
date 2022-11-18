@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Models\TamuUnit;
+use App\Models\BukuTamuUnit;
 use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder;
 
@@ -100,5 +101,17 @@ class TamuController extends Controller
         $data = TamuUnit::findOrFail($id);
         $qrcode = QrCode::size(400)->generate(bcrypt($data->id));
         return view('tamu\qrcode',compact('qrcode'));
+    }
+    public function regcekin(Request $request){
+        $model = new BukuTamuUnit;
+        $model->id_tamu_unit = $request->id_tamu_unit;
+        // id_buku_tamu_unit	id_tamu_unit	cek_in	cek_out	no_badge	id_user	created_at	updated_at;
+        $model->cek_in = now();
+        $model->cek_out = null;
+        $model->no_badge = null;
+        $model->id_user = $request->id_user;
+        // dd($model);
+        $model->save();
+        return redirect('security/scan')->with('pesan',"data tamu telah di tambah kan");
     }
 }

@@ -34,6 +34,9 @@ class securityController extends Controller
                 "status_error"=>"data tidak ada"
             ]);
         }
+        return response()->json([
+            "berhasil" => "data ada",
+        ]);
 
         // $tamuunit->update({
             // dd($tamuunit);
@@ -49,9 +52,6 @@ class securityController extends Controller
         // return view('security.qrcode-view'. compact('tamuunit'));
         // $tamuunit = $tamuunit;
         // return view('security.qrcode-view'. compact($tamuunit));
-        return response()->json([
-            "berhasil" => "data ada",
-        ]);
         // return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
     }
 }

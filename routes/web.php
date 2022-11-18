@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('security/scan',[securityController::class,'scan'])->name('scan');
         Route::post('security/validasiQrcode',[securityController::class,'validasiQrcode'])->name('validasiQrcode');
         Route::get('security/qrcode_view',[securityController::class,'qrcode_view'])->name('qrcode_view');
-
+        Route::post('security/registrasi/tamu-unit',[TamuController::class,'regcekin'])->name('tamu_unit') ;
     });
 });
 Route::resource('acara', AcaraController::class);
