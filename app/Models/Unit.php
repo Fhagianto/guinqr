@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Unit extends Model
 {
     use HasFactory;
+    protected $table ="units";
+    protected $primaryKey = "id";
     protected $fillable = [
         'nama_unit',
         'keterangan',
         'email_unit',
     ];
     public function tamuunit(){
-        return $this->hasMany('App\Models\TamuUnit');
+        return $this->hasMany(TamuUnit::class);
     }
 }

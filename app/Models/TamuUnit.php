@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TamuUnit extends Model
 {
     use HasFactory;
+    protected $table ="tamu_units";
+    protected $primaryKey = "id";
     protected $fillable = [
         'nama',
         'no_telpon',
@@ -19,6 +21,6 @@ class TamuUnit extends Model
     ];
 
     public function unit(){
-    	return $this->belongsTo('App\Models\Unit');
+    	return $this->belongsTo(Unit::class,'id_unit', "id_unit");
     }
 }

@@ -19,7 +19,7 @@ class securityController extends Controller
     public function qrcode_view()
     {
         // $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get();
-        $tamuunit = TamuUnit::where("id_tamu_unit", $_GET['idT'])->get();
+        $tamuunit = TamuUnit::with('unit')->where("id_tamu_unit", $_GET['idT'])->get();
         return view('security.qrcode-view')
         ->with('tamuunit',$tamuunit)
         ;
