@@ -34,7 +34,10 @@ class TamuController extends Controller
         $model->tgl = $request->inputTanggal;
         $model->save();
         $model->id;
-
+        return view('tamu.qrcode'
+        // . compact('qrcode')
+        , ['tamu' => $model->id]
+        );
         // $tamu_unit =[
         //     [
         //         'nama' => $request->inputNama,
@@ -58,7 +61,6 @@ class TamuController extends Controller
         // ->get();
         // $tamu1= array($tamu);
         // $tamu = DB::select('select * from tamu_units where tokenqr_id = ? and tokenqr_ps = ?', [$model->tokenqr_id, $model->tokenqr_ps]);
-
         // ->orderBy('id', 'DESC');
         //$posts = Post::orderBy('id', 'DESC')->get();
         // $tamu = TamuUnit::select('tokenqr_id', $model->tokenqr_id, 'tokenqr_ps', $model->tokenqr_ps)->orderBy('id_tamu_unit', 'DESC')->get();
@@ -70,15 +72,13 @@ class TamuController extends Controller
         // $model->id_tamu_unit;
         // dd($id);
         // $qrcode = QrCode::size(250)->generate($model->id);
-        return view('tamu.qrcode'
-        // . compact('qrcode')
-        , ['tamu' => $model->id]
-        );
     }
+
     public function create_tamu_acara()
     {
         return view('tamu\qrcode');
     }
+
     public function qr_view()
     {
         return view('tamu\qrcode');
@@ -86,7 +86,6 @@ class TamuController extends Controller
 
     public function generate ($id)
     {
-
         // DB::table('tamu_units')->insert([
         //     'nama' => $request->inputNama,
         //     'no_telpon' => $request->inputTelpon,
@@ -105,12 +104,10 @@ class TamuController extends Controller
     public function regcekin(Request $request){
         $model = new BukuTamuUnit;
         $model->id_tamu_unit = $request->id_tamu_unit;
-        // id_buku_tamu_unit	id_tamu_unit	cek_in	cek_out	no_badge	id_user	created_at	updated_at;
         $model->cek_in = now();
         $model->cek_out = null;
         $model->no_badge = null;
         $model->id_user = $request->id_user;
-        // dd($model);
         $model->save();
         return redirect('security/scan')->with('pesan',"data tamu telah di tambah kan");
     }
