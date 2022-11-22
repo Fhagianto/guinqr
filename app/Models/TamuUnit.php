@@ -18,6 +18,7 @@ class TamuUnit extends Model
         'instansi',
         'id_unit',
         'tgl',
+        'status',
     ];
 
     public function unit(){

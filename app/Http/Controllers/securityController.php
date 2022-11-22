@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuTamuAcara;
+use App\Models\BukuTamuUnit;
 use Illuminate\Http\Request;
 use App\Models\TamuUnit;
+use App\Models\TamuAcara;
 use PhpParser\Node\Stmt\Return_;
 
 class securityController extends Controller
@@ -19,10 +22,30 @@ class securityController extends Controller
     public function qrcode_view()
     {
         // $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get();
-        $tamuunit = TamuUnit::with('unit')->where("id_tamu_unit", $_GET['idT'])->get();
-        return view('security.qrcode-view')
-        ->with('tamuunit',$tamuunit)
-        ;
+        $tamuunit = TamuUnit::with('unit')->where("id_tamu_unit", $_GET['idT'])->first();
+            if ($tamuunit == null){
+                $tamuacara = TamuAcara::with('acara')->where("id_tamu_acara", $_GET['idT'])->first();
+                if($tamuacara->status==1){
+                    return view('security.qrcode-view')
+                    ->with('tamuacara',$tamuacara)
+                    ->with('tamuunit','null')
+                ;
+                }
+                return view('security.qrcode-view')
+                ->with('tamuunit','null')
+                ->with('tamuacara','null')
+                ;
+            }
+            if($tamuunit->status==1){
+                return view('security.qrcode-view')
+                ->with('tamuunit',$tamuunit)
+                ->with('tamuacara','null')
+                ;
+            }
+            return view('security.qrcode-view')
+            ->with('tamuunit','null')
+            ->with('tamuacara','null')
+            ;
     }
     public function validasiQrcode(Request $request){
 
@@ -30,14 +53,30 @@ class securityController extends Controller
         $tamuunit = TamuUnit::where("id_tamu_unit", $request->qr_code)->first();
 
         if ($tamuunit == null){
+            $tamuacara = TamuAcara::where("id_tamu_acara", $request->qr_code)->first();
+            if ($tamuacara == null) {
+                return response()->json([
+                    "status_error"=>"data tidak ada"
+                ]);
+            }
+            if($tamuacara->status==1){
+                return response()->json([
+                    "tamuacara" => "data ada",
+                ]);
+            }
+
             return response()->json([
-                "status_error"=>"data tidak ada"
+                "dataada" => "data sudah cek in",
+            ]);
+        }
+        if($tamuunit->status==1){
+            return response()->json([
+                "tamuunit" => "data ada",
             ]);
         }
         return response()->json([
-            "berhasil" => "data ada",
+            "dataada" => "data sudah cek in",
         ]);
-
         // $tamuunit->update({
             // dd($tamuunit);
         // });
@@ -53,5 +92,13 @@ class securityController extends Controller
         // $tamuunit = $tamuunit;
         // return view('security.qrcode-view'. compact($tamuunit));
         // return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
+    }
+    public function datatamuunit(){
+        $data = BukuTamuUnit::with('TamuUnit.unit')->get();
+        return view('security.tamuunit')->with('data',$data);
+    }
+    public function datatamuacara(){
+        $data = BukuTamuAcara::with('TamuAcara.acara')->get();
+        return view('security.tamuacara')->with('data',$data);
     }
 }

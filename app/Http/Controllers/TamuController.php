@@ -8,8 +8,12 @@ use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Models\TamuUnit;
 use App\Models\BukuTamuUnit;
+use App\Models\acara;
+use App\Models\TamuAcara;
+use App\Models\BukuTamuAcara;
 use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class TamuController extends Controller
 {
@@ -18,10 +22,13 @@ class TamuController extends Controller
         $units = DB::table('units')->get();
         return view('tamu\tamu-unit', ['units' => $units,]);
     }
+
     public function tamu_acara()
     {
-        return view('tamu\tamu-acara');
+        $acaras = acara::get();
+        return view('tamu\tamu-acara',['acaras' => $acaras,]);
     }
+
     public function create_tamu_unit(Request $request)
     {
         $model = new TamuUnit;
@@ -32,6 +39,7 @@ class TamuController extends Controller
         $model->instansi = $request->inputInstansi;
         $model->id_unit = $request->inputTujuan;
         $model->tgl = $request->inputTanggal;
+        $model->status="1";
         $model->save();
         $model->id;
         return view('tamu.qrcode'
@@ -74,9 +82,22 @@ class TamuController extends Controller
         // $qrcode = QrCode::size(250)->generate($model->id);
     }
 
-    public function create_tamu_acara()
+    public function create_tamu_acara(Request $request)
     {
-        return view('tamu\qrcode');
+        $id = IdGenerator::generate(['table' => 'tamu_acaras', 'length' => 15, 'prefix' =>"TA-".date('ymd')]);
+        $model = new TamuAcara;
+        $model->id_tamu_acara= $id;
+        $model->nama = $request->inputNama;
+        $model->no_telpon = $request->inputTelpon;
+        $model->email = $request->inputEmail;
+        $model->id_acara = $request->inputTujuan;
+        $model->status="1";
+        $model->save();
+        $model->id_tamu_acara;
+        return view('tamu.qrcode'
+        // . compact('qrcode')
+        , ['tamu' => $model->id]
+        );
     }
 
     public function qr_view()
@@ -101,9 +122,22 @@ class TamuController extends Controller
         $qrcode = QrCode::size(400)->generate(bcrypt($data->id));
         return view('tamu\qrcode',compact('qrcode'));
     }
-    public function regcekin(Request $request){
+
+    public function regcekinTU(Request $request){
         $model = new BukuTamuUnit;
         $model->id_tamu_unit = $request->id_tamu_unit;
+        $model->cek_in = now();
+        $model->cek_out = null;
+        $model->no_badge = null;
+        $model->id_user = $request->id_user;
+        $model->save();
+        TamuUnit::where('id_tamu_unit', $request->id_tamu_unit)
+        ->update(['status' => "2"]);
+        return redirect('security/scan')->with('pesan',"data tamu telah di tambah kan");
+    }
+    public function regcekinTA(Request $request){
+        $model = new BukuTamuAcara();
+        $model->id_tamu_acara = $request->id_tamu_acara;
         $model->cek_in = now();
         $model->cek_out = null;
         $model->no_badge = null;

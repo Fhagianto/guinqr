@@ -8,10 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class TamuAcara extends Model
 {
     use HasFactory;
+    protected $table ="tamu_acaras";
+    protected $primaryKey = "id";
     protected $fillable = [
         'nama',
         'no_telpon',
         'email',
         'id_acara',
+        'status',
     ];
+    public function acara(){
+    	return $this->belongsTo(acara::class,'id_acara',"id_acara");
+    }
 }

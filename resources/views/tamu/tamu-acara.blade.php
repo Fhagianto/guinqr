@@ -99,9 +99,7 @@
                                             <small>Elektronik Guest Invitation QR code</small>
                                         </div>
                                     <div class="card-body">
-                                        <form action="#" method="POST" id="Form"
-                                        style="background-image: url('{{ asset ('img') }}/logo2.svg');
-                                        background-repeat: no-repeat;">
+                                        <form action="{{ route('create_tamu_acara') }}" method="POST" id="Form">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -156,15 +154,11 @@
                                                             name="inputTujuan"
                                                             type="text"
                                                             required
-                                                            placeholder="Masukkan Unit Tujuan">
+                                                            placeholder="Masukkan Acara Tujuan">
                                                             <option selected="selected"></option>
-                                                            <option>Alabama</option>
-                                                            <option>Alaska</option>
-                                                            <option>California</option>
-                                                            <option>Delaware</option>
-                                                            <option>Tennessee</option>
-                                                            <option>Texas</option>
-                                                            <option>Washington</option>
+                                                            @foreach ($acaras as $acaras)
+                                                            <option value="{{ $acaras->id_acara }}" >{{ $acaras->nama_acara }}</option>
+                                                            @endforeach
                                                         </select>
                                                         @if($errors->has('inputTujuan'))
                                                         <span class="error">{{ $errors->first('inputTujuan') }}</span>

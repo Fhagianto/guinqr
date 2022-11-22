@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\acara;
 use App\Models\Unit;
+use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Database\Seeder;
 
 class Unit_Seeder extends Seeder
@@ -33,6 +35,20 @@ class Unit_Seeder extends Seeder
             ];
             foreach ($unit as $key => $value) {
                 Unit::create($value);
+            }
+        $acara =[
+            [
+                'nama_acara' => 'PBL',
+                'keterangan' => 'lantai 2 gedung utama',
+                'email_acara' => 'humas@gmail.com',
+                'tgl_start'=> now(),
+                'tgl_end'=> now(),
+                'id_user_acara'=> '4',
+
+            ],
+            ];
+            foreach ($acara as $key => $value) {
+                acara::create($value);
             }
     }
 }

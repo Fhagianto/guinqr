@@ -15,4 +15,8 @@ class BukuTamuAcara extends Model
         'no_badge',
         'id_user',
     ];
+
+    public function TamuAcara(){
+        return $this->belongsTo(TamuAcara::class,'id_tamu_acara','id_tamu_acara');
+    }
 }

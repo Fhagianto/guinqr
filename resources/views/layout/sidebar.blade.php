@@ -113,25 +113,25 @@
           @can('isSecurity')
             <li class="nav-header ">Menu</li>
             <li class="nav-item ">
-                <a href="/security" class="nav-link active">
+                <a href="/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
                 <i class="nav-icon fas fa-tachometer-alt-fast"></i>
                 <p>Dashboard</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Data tamu Unit</p>
+                <a href="/security/datatamuunit" class="nav-link {{ Request::is('security/datatamuunit')?'active':'' }}">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Data tamu Unit</p>
+                </a>
+            </li>
+                <li class="nav-item">
+                <a href="/security/datatamuacara" class="nav-link {{ Request::is('security/datatamuacara')?'active':'' }}">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Data tamu acara</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Data tamu acara</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/security/scan" class="nav-link">
+                <a href="/security/scan" class="nav-link {{ Request::is('security/scan')?'active':'' }}">
                 <i class="nav-icon fas fa-qrcode"></i>
                 <p>Scan Qr Code</p>
                 </a>

@@ -22,6 +22,7 @@ class CreateTamuUnitsTable extends Migration
             $table->string('instansi');
             $table->integer('id_unit');
             $table->date('tgl');
+            $table->integer('status');
             $table->timestamps();
         });
     }

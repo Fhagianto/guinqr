@@ -105,7 +105,7 @@
                                 text : 'qrcode tidak terdaftar'
                             })
                         }
-                        if(response.berhasil){
+                        if(response.tamuunit){
                             Swal.fire({
                                 icon : 'success',
                                 type :'success',
@@ -114,7 +114,26 @@
                             });
                             // window.location.href = data.redirect;
                             // window.location = '/security/qrcode_view';
-                            window.location.href = "/security/qrcode_view?idT=" + decodedText;
+                            window.location.href = "/security/qrcode_view?idT=" + decodedText +"?tb=1";
+                        }
+                        if(response.tamuacara){
+                            Swal.fire({
+                                icon : 'success',
+                                type :'success',
+                                title : 'Success',
+                                text : 'data ada'
+                            });
+                            // window.location.href = data.redirect;
+                            // window.location = '/security/qrcode_view';
+                            window.location.href = "/security/qrcode_view?idT=" + decodedText +"?tb=2";
+                        }
+                        if(response.dataada){
+                            Swal.fire({
+                                icon : 'info',
+                                type :'info',
+                                title : 'Data Tamu telah ada',
+                                text : 'Data tamu sudah cek-in'
+                            });
                         }
                     },
                     error: function(xhr) {

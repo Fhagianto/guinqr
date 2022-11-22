@@ -49,10 +49,13 @@ Route::group(['middleware' => ['auth']], function(){
     });
     Route::group(['middleware' => ['cek_login:security']], function(){
         Route::get('dashboard',[securityController::class,'dashboard'])->name('security');
+        Route::get('security/datatamuunit', [securityController::class,'datatamuunit'])->name('datatamuunit');
+        Route::get('security/datatamuacara', [securityController::class,'datatamuacara'])->name('datatamuacara');
         Route::get('security/scan',[securityController::class,'scan'])->name('scan');
         Route::post('security/validasiQrcode',[securityController::class,'validasiQrcode'])->name('validasiQrcode');
         Route::get('security/qrcode_view',[securityController::class,'qrcode_view'])->name('qrcode_view');
-        Route::post('security/registrasi/tamu-unit',[TamuController::class,'regcekin'])->name('tamu_unit') ;
+        Route::post('security/registrasi/tamu-unit',[TamuController::class,'regcekinTU'])->name('tamu_unit') ;
+        Route::post('security/registrasi/tamu-acara',[TamuController::class,'regcekinTA'])->name('tamu_acara') ;
     });
 });
 Route::resource('acara', AcaraController::class);

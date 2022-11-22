@@ -14,11 +14,12 @@ class CreateTamuAcarasTable extends Migration
     public function up()
     {
         Schema::create('tamu_acaras', function (Blueprint $table) {
-            $table->id('id_tamu_acara');
+            $table->string('id_tamu_acara');
             $table->string('nama');
             $table->string('no_telpon');
             $table->string('email');
             $table->integer('id_acara');
+            $table->integer('status');
             $table->timestamps();
         });
     }
