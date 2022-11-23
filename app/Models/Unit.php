@@ -9,11 +9,12 @@ class Unit extends Model
 {
     use HasFactory;
     protected $table ="units";
-    protected $primaryKey = "id";
+    protected $primaryKey = "id_unit";
     protected $fillable = [
         'nama_unit',
         'keterangan',
         'email_unit',
+        'status',
     ];
     public function tamuunit(){
         return $this->hasMany(TamuUnit::class);

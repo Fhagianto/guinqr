@@ -85,35 +85,30 @@
           </li>
           @endcan
           @can('isUseracara')
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Data Acara
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
+          <li class="nav-item ">
+            <a href="/security/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
+            <i class="nav-icon fas fa-tachometer-alt-fast"></i>
+            <p>Dashboard</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('acara')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Acara</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Tamu Acara</p>
-                </a>
-              </li>
-            </ul>
           </li>
+          <li class="nav-item">
+            <a href="{{url('acara')}}" class="nav-link {{ Request::is('acara')?'active':'' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Acara</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::is('acara1')?'active':'' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>List Tamu Acara</p>
+            </a>
+          </li>
+
           @endcan
           @can('isSecurity')
             <li class="nav-header ">Menu</li>
             <li class="nav-item ">
-                <a href="/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
+                <a href="/security/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
                 <i class="nav-icon fas fa-tachometer-alt-fast"></i>
                 <p>Dashboard</p>
                 </a>

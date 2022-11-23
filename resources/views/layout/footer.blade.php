@@ -13,7 +13,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-@yield('footer')
+
 <!-- jQuery -->
 <script src="{{ asset ('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -64,10 +64,11 @@
 <script>
   $(function () {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true, "lengthChange": true,"lengthMenu": [ [5, 10, 25, 50, 75, 100,-1],[5, 10, 25, 50, 75, 100,"ALL"]], "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>
+@yield('footer')
 </body>
 </html>

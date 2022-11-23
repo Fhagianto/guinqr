@@ -8,7 +8,10 @@ class Acara extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * =>status
+     *  - 1 = tampil di useracara, superadmin (disable)
+     *  - 2 = tampil di useracara, tamu acara, superadmin (enable)
+     *  - 3 = tampil di superadmin (delate)
      * @return void
      */
     public function up()
@@ -21,6 +24,7 @@ class Acara extends Migration
             $table->date('tgl_start');
             $table->date('tgl_end');
             $table->integer('id_user_acara');
+            $table->integer('status');
             $table->timestamps();
         });
     }

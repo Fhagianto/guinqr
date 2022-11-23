@@ -9,7 +9,7 @@ class TamuAcara extends Model
 {
     use HasFactory;
     protected $table ="tamu_acaras";
-    protected $primaryKey = "id";
+    // protected $primaryKey = "id_tamu_acara";
     protected $fillable = [
         'nama',
         'no_telpon',

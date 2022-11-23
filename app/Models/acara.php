@@ -9,7 +9,7 @@ class acara extends Model
 {
     use HasFactory;
     protected $table = "acara";
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_acara';
     protected $fillable = [
         'nama_acara',
         'keterangan',
@@ -17,6 +17,7 @@ class acara extends Model
         'tgl_start',
         'tgl_end',
         'id_user_acara',
+        'status',
     ];
     public function tamuacara(){
         return $this->hasMany(TamuAcara::class);

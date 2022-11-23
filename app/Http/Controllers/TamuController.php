@@ -11,6 +11,8 @@ use App\Models\BukuTamuUnit;
 use App\Models\acara;
 use App\Models\TamuAcara;
 use App\Models\BukuTamuAcara;
+use App\Models\Unit;
+use Database\Seeders\tamuacara as SeedersTamuacara;
 use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
@@ -19,14 +21,18 @@ class TamuController extends Controller
 {
     public function tamu_unit()
     {
-        $units = DB::table('units')->get();
+        // $units = DB::table('units')->get();
+        $units = Unit::where("status", '1')->get();
         return view('tamu\tamu-unit', ['units' => $units,]);
     }
 
     public function tamu_acara()
     {
-        $acaras = acara::get();
-        return view('tamu\tamu-acara',['acaras' => $acaras,]);
+        // $acaras = acara::get();
+        $acaras = acara::where("status", '1')->get();
+        return view('tamu\tamu-acara',
+        ['acaras' => $acaras,]
+        );
     }
 
     public function create_tamu_unit(Request $request)
@@ -41,10 +47,10 @@ class TamuController extends Controller
         $model->tgl = $request->inputTanggal;
         $model->status="1";
         $model->save();
-        $model->id;
+        $model->id_tamu_unit;
         return view('tamu.qrcode'
         // . compact('qrcode')
-        , ['tamu' => $model->id]
+        , ['tamu' => $model->id_tamu_unit]
         );
         // $tamu_unit =[
         //     [
@@ -96,7 +102,7 @@ class TamuController extends Controller
         $model->id_tamu_acara;
         return view('tamu.qrcode'
         // . compact('qrcode')
-        , ['tamu' => $model->id]
+        , ['tamu' => $id]
         );
     }
 
@@ -129,7 +135,7 @@ class TamuController extends Controller
         $model->cek_in = now();
         $model->cek_out = null;
         $model->no_badge = null;
-        $model->id_user = $request->id_user;
+        $model->id_user_ci = $request->id_user;
         $model->save();
         TamuUnit::where('id_tamu_unit', $request->id_tamu_unit)
         ->update(['status' => "2"]);
@@ -141,8 +147,10 @@ class TamuController extends Controller
         $model->cek_in = now();
         $model->cek_out = null;
         $model->no_badge = null;
-        $model->id_user = $request->id_user;
+        $model->id_user_ci = $request->id_user;
         $model->save();
+        TamuAcara::where('id_tamu_acara', $request->id_tamu_acara)
+        ->update(['status' => "2"]);
         return redirect('security/scan')->with('pesan',"data tamu telah di tambah kan");
     }
 }

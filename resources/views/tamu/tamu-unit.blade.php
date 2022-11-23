@@ -180,9 +180,11 @@
                                                             required
                                                             placeholder="Masukkan Unit Tujuan">
                                                             <option selected="selected"></option>
+                                                            @if ($units)
                                                             @foreach ($units as $units)
                                                             <option value="{{ $units->id_unit }}" >{{ $units->nama_unit }}</option>
                                                             @endforeach
+                                                            @endif
                                                         </select>
                                                         @if($errors->has('inputTujuan'))
                                                         <span class="error">{{ $errors->first('inputTujuan') }}</span>

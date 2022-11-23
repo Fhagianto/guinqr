@@ -8,7 +8,9 @@ class CreateTamuUnitsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * =>status
+     *  - 1 = tamu belum di scan / cek-in
+     *  - 2 = tamu sudah di scan / cek-in
      * @return void
      */
     public function up()

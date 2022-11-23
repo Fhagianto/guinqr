@@ -12,7 +12,8 @@
 {{-- {{ $tamuunit = DB::table('tamu_units')->where('id_tamu_unit', $_GET['idT'])->get(); }} --}}
 {{-- {{ dd($tamuunit) }} --}}
 {{-- {{ dd($tamuacara) }} --}}
-{{-- {{ dd($tamuunit,$tamuacara) }} --}}
+{{-- {{ dd($tamuunit,$tamuacara,$tamuacara->id_tamu_acara) }} --}}
+{{-- {{ dd($tamuacara->id_tamu_acara) }} --}}
 {{-- {{ dd(Auth::user()->id) }} --}}
 
     <!-- Content Header (Page header) -->

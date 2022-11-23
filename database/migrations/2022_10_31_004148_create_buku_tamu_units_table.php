@@ -19,7 +19,8 @@ class CreateBukuTamuUnitsTable extends Migration
             $table->timestamp('cek_in');
             $table->timestamp('cek_out')->nullable();
             $table->string('no_badge')->nullable();
-            $table->integer('id_user');
+            $table->integer('id_user_ci');
+            $table->integer('id_user_co')->nullable();
             $table->timestamps();
         });
     }

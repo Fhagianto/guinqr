@@ -14,6 +14,8 @@ class BukuTamuUnit extends Model
         'cek_out',
         'no_badge',
         'id_user',
+        'id_user_ci',
+        'id_user_co',
     ];
     public function TamuUnit(){
         return $this->belongsTo(TamuUnit::class,'id_tamu_unit','id_tamu_unit');

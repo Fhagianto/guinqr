@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\acara;
+use App\Models\BukuTamuAcara;
+use App\Models\TamuAcara;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,9 +17,12 @@ class AcaraController extends Controller
      */
     public function index()
     {
-        $datas = acara::all();
+        // $datas = acara::all();
+        // $units = Unit::where("status", '1')->get();
+        $datas = acara::Where("status", '1')->orWhere("status", '2')->get();
+        $cekin = TamuAcara::Where("status", '2')->get();
         return view('useracara.acara', compact(
-            'datas'
+            'datas','cekin'
         ));
     }
 
@@ -50,6 +55,7 @@ class AcaraController extends Controller
         $model->tgl_start = $request->tgl_start;
         $model->tgl_end = $request->tgl_end;
         $model->id_user_acara = $user->id;
+        $model->status=$request->status;
         $model->save();
 
         return redirect('acara');
@@ -95,6 +101,7 @@ class AcaraController extends Controller
         $model->email_acara = $request->email_acara;
         $model->tgl_start = $request->tgl_start;
         $model->tgl_end = $request->tgl_end;
+        $model->status=$request->status;
         $model->save();
 
         return redirect('acara');
@@ -108,9 +115,18 @@ class AcaraController extends Controller
      */
     public function destroy($id)
     {
-        $model = acara::find($id);
-        $model->delete();
+        acara::where('id_acara', $id)
+        ->update(['status' => '3']);
 
         return redirect('acara');
     }
+    // public function dashboard1()
+    // {
+    //     $BukuTamuAcara = BukuTamuAcara::with('TamuAcara.acara')->count();
+    //     $BukuTamuUnit = BukuTamuUnit::with('TamuUnit.unit')->count();
+    //     return view('security.dashboard')
+    //     ->with('BukuTamuAcara',$BukuTamuAcara)
+    //     ->with('BukuTamuUnit',$BukuTamuUnit)
+    //     ;
+    // }
 }

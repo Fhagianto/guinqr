@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
                 <div class="card card-outline card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">Hasil SCAN QR CODE</h3>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- /.row -->
@@ -114,7 +114,7 @@
                             });
                             // window.location.href = data.redirect;
                             // window.location = '/security/qrcode_view';
-                            window.location.href = "/security/qrcode_view?idT=" + decodedText +"?tb=1";
+                            window.location.href = "/security/qrcode_view?idT=" + decodedText;
                         }
                         if(response.tamuacara){
                             Swal.fire({
@@ -125,7 +125,7 @@
                             });
                             // window.location.href = data.redirect;
                             // window.location = '/security/qrcode_view';
-                            window.location.href = "/security/qrcode_view?idT=" + decodedText +"?tb=2";
+                            window.location.href = "/security/qrcode_view?idT=" + decodedText;
                         }
                         if(response.dataada){
                             Swal.fire({

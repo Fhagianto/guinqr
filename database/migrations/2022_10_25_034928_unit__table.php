@@ -8,7 +8,9 @@ class UnitTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *  - 1 = tampil di admin, superadmin (disable)
+     *  - 2 = tampil di admin, tamu acara, superadmin (enable)
+     *  - 3 = tampil di superadmin (delate)
      * @return void
      */
     public function up()
@@ -18,6 +20,7 @@ class UnitTable extends Migration
             $table->string('nama_unit');
             $table->string('keterangan');
             $table->string('email_unit')->unique();
+            $table->integer('status');
             $table->timestamps();
         });
     }

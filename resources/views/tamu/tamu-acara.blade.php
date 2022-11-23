@@ -156,9 +156,12 @@
                                                             required
                                                             placeholder="Masukkan Acara Tujuan">
                                                             <option selected="selected"></option>
-                                                            @foreach ($acaras as $acaras)
-                                                            <option value="{{ $acaras->id_acara }}" >{{ $acaras->nama_acara }}</option>
-                                                            @endforeach
+                                                            @if ($acaras)
+                                                                @foreach ($acaras as $acaras)
+                                                                <option value="{{ $acaras->id_acara }}" >{{ $acaras->nama_acara }}</option>
+                                                                @endforeach
+                                                            @endif
+
                                                         </select>
                                                         @if($errors->has('inputTujuan'))
                                                         <span class="error">{{ $errors->first('inputTujuan') }}</span>

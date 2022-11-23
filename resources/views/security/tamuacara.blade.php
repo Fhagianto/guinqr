@@ -5,48 +5,94 @@
 @section('main')
 {{-- {{ dd($data) }} --}}
 <div class="content-header">
-    <h1 class="m-1" style="text-transform: capitalize">Data Tamu Acara</h1>
+    <h1 class="m-1" style="text-transform: capitalize">Tamu Acara</h1>
+</div>
+<div class="content">
     <div class="card card-outline card-secondary">
         <div class="card-header">
-            <h5 sytle="float:left;"><strong>Tamu Acara</strong></h5>
+          <h3 class="card-title">Buku Tamu Acara</h3>
         </div>
-        <div class="table-responsive col-lg-12">
-            <table class="table table-striped table-sm">
-                <div class="col-sm-6">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Acara</th>
-                            <th scope="col">Cek In</th>
-                            <th scope="col">Cek Out</th>
-                            <th scope="col">No Badge</th>
-                            <th scope="col">action</th>
-                        </tr>
-                        @php $no = 0; @endphp
-                        @foreach ($data as $key=>$value)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $value->id_tamu_acara }}</td>
-                            <td>{{ $value->TamuAcara->nama }}</td>
-                            <td>{{ $value->TamuAcara->acara->nama_acara }}</td>
-                            <td>{{ $value->cek_in }}</td>
-                            <td>{{ $value->cek_out }}</td>
-                            <td>{{ $value->no_badge }}</td>
-                            <td>
-                            <a class="btn btn-info" href="#">Edit No Badge</a>
-                            <a class="btn btn-info" href="#">Cek out</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </thead>
-                    <tbody>
-                    </tbody>
-            </table>
-        </div>
+        <!-- /.card-header -->
         <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Acara</th>
+                    <th scope="col">Cek In</th>
+                    <th scope="col">Cek Out</th>
+                    <th scope="col">No Badge</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            @php $no = 1; @endphp
+            <tbody>
+                @foreach ($data as $key=>$value)
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <div class="modal inmodal fade" id="modal-edit-@php echo $no @endphp" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-xs">
+                            <form name="frm_edit" id="frm_edit" class="form-horizontal" action="{{route('edit_nobadge_tamuacara')}}" method="POST">
+                                @csrf
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Edit Nomor Badge</h4>
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label class="col-lg-5 control-label">Nomor Badge</label>
+                                            <div class="col-lg-12">
+                                                <input type="text" name="no_badge" id="no_badge" placeholder="Nomor Badge" class="form-control" value='{{ $value->no_badge }}'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" name="id_buku_tamu_acara" id="id_buku_tamu_acara" value='{{ $value->id_buku_tamu_acara }}'>
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <td>{{ $value->TamuAcara->nama }}</td>
+                    <td>{{ $value->TamuAcara->acara->nama_acara }}</td>
+                    <td>{{ $value->cek_in }}</td>
+                    <td>{{ $value->cek_out }}</td>
+                    <td>{{ $value->no_badge }}</td>
+                    <td>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-edit-@php echo $no @endphp" data-id="{{$value->id_buku_tamu_acara}}"><i class="fa-sharp fa-solid fa-pen-to-square"></i> No Badge</button>
+                    @if ($value->cek_out==null)
+                        <form action="{{url('security/tamu-acara/cek-out')}}" method="POST" id="regForm">
+                            @csrf
+                            <input type="hidden" id="id_buku_tamu_acara" name="id_buku_tamu_acara" value='{{ $value->id_buku_tamu_acara }}'>
+                            <input type="hidden" id="id_user" name="id_user" value='{{ Auth::user()->id }}'>
+                            <button class="btn btn-danger" type="submit"><i class="fa-sharp fa-solid fa-right-from-bracket"></i> Cek out</button>
+                        </form>
+                    @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Acara</th>
+                    <th scope="col">Cek In</th>
+                    <th scope="col">Cek Out</th>
+                    <th scope="col">No Badge</th>
+                    <th scope="col">action</th>
+                </tr>
+            </tfoot>
+          </table>
         </div>
+        <!-- /.card-body -->
     </div>
 </div>
 </div>
+@endsection
+@section('footer')
 @endsection

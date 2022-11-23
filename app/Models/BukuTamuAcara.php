@@ -13,7 +13,8 @@ class BukuTamuAcara extends Model
         'cek_in',
         'cek_out',
         'no_badge',
-        'id_user',
+        'id_user_ci',
+        'id_user_co',
     ];
 
     public function TamuAcara(){
