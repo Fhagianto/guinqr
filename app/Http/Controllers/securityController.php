@@ -99,8 +99,7 @@ class securityController extends Controller
         // return view('security.qrcode-view', ['tamuunit' => $tamuunit,]);
     }
     public function datatamuunit(){
-        $data = BukuTamuUnit::with('TamuUnit.unit')->latest();
-        // dd($data);
+        $data = BukuTamuUnit::with('TamuUnit.unit')->get();
         return view('security.tamuunit')->with('data',$data);
     }
     public function datatamuacara(){
