@@ -18,9 +18,13 @@ class UnitTable extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id('id_unit');
             $table->string('nama_unit');
+            $table->string('username');
+            $table->string('password');
             $table->string('keterangan');
             $table->string('email_unit')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->integer('status');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
