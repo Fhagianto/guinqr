@@ -14,3 +14,4 @@
 @include('layout.footer')
 {{-- @yield('footer') ada di atas--}}
 
+@yield('scripts')

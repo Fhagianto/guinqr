@@ -19,13 +19,13 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        @can('isSadmin')
+        @can('isUserunit')
         <div class="row">
           <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$acaramC}}</h3>
+                {{-- <h3>{{$acaramC}}</h3> --}}
 
                 <p>Acara Manage Data</p>
               </div>
@@ -40,7 +40,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$unitmC}}<sup style="font-size: 20px"></sup></h3>
+                {{-- <h3>{{$unitmC}}<sup style="font-size: 20px"></sup></h3> --}}
                 <p>All Unit Data</p>
               </div>
               <div class="icon">
@@ -54,7 +54,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{$usermC}}</h3>
+                {{-- <h3>{{$usermC}}</h3> --}}
 
                 <p>User Manage</p>
               </div>

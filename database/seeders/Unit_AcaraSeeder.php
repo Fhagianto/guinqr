@@ -19,18 +19,24 @@ class Unit_AcaraSeeder extends Seeder
         $unit =[
             [
                 'nama_unit' => 'Humas',
+                'username' => 'Humas',
+                'password' => 'Humas',
                 'keterangan' => 'lantai 2 gedung utama',
                 'email_unit' => 'humas@gmail.com',
                 'status'=>'1',
             ],
             [
                 'nama_unit' => 'Informatika',
+                'username' => 'Informatika',
+                'password' => 'Informatika',
                 'keterangan' => 'lantai 6 Gedung Utama',
                 'email_unit' => 'informatika@gmail.com',
                 'status'=>'1',
             ],
             [
                 'nama_unit' => 'Multimedia dan Jaringan',
+                'username' => 'Multimedia dan Jaringan',
+                'password' => 'Multimedia dan Jaringan',
                 'keterangan' => 'lantai 6 Gedung Utama',
                 'email_unit' => 'muljar@gmail.com',
                 'status'=>'1',

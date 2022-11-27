@@ -23,19 +23,18 @@ class AuthController extends Controller
             $kredensil = $request->only('username','password');
             //disini ngecek role
             if (Auth::attempt($kredensil)) {
-                // dd($request);
                 $user = Auth::user()->level;
                 if ($user == 'superadmin') {
-                    return redirect('superadmin/dashboard');
-                } elseif ($user == 'admin') {
-                    return redirect('admin/dashboard');
+                    return redirect('superadmin/dashboard1');
+                } elseif ($user == 'userunit') {
+                    return redirect('userunit/dashboard2');
                 } elseif ($user == 'security') {
                     return redirect('security/dashboard');
                 } elseif ($user == 'useracara') {
                     return redirect('useracara/dashboard');
                 }else
                 return redirect()->intended('/');
-            }
+            } 
             return redirect('login')->with('error',"Salah Username / Password");
     }
     public function logout(Request $request)

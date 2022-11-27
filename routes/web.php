@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\useracaraController;
 use App\Http\Controllers\TamuController;
 use App\Http\Controllers\securityController;
+use App\Http\Controllers\UserunitController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,10 +41,32 @@ Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
-        Route::get('superadmin/dashboard',[SuperadminController::class,'dashboard'])->name('superadmin_dashboard');
+        Route::get('superadmin/dashboard1',[SuperadminController::class,'index'])->name('superadmin/dashboard1');
+
+        Route::get('superadmin/usermanage',[SuperadminController::class,'usermanage'])->name('usermanage');
+        Route::post('superadmin/usermanage-add',[SuperadminController::class,'storeUser'])->name('usermanage-add');
+        Route::get('userm-edit/{id}',[SuperadminController::class,'editUser'])->name('userm-edit');
+        Route::put('superadmin/usermanage-update',[SuperadminController::class,'updateUser'])->name('usermanage-update');
+        Route::delete('superadmin/usermanage-delete',[SuperadminController::class,'deleteUser'])->name('usermanage-delete');
+
+        Route::get('superadmin/acaramanage',[SuperadminController::class,'acaramanage'])->name('acaramanage');
+        Route::get('acaram-catch/{id}',[SuperadminController::class,'acaramcatch'])->name('acaram-catch');
+        Route::delete('superadmin/acaram-delete',[SuperadminController::class,'deleteAcaram'])->name('acaram-delete');
+
+        Route::get('superadmin/unitmanage',[SuperadminController::class,'unitmanage'])->name('unitmanage');
+        Route::post('superadmin/unitmanage-add',[SuperadminController::class,'storeUnit'])->name('unitmanage-add');
+        Route::get('unitm-catch/{id}',[SuperadminController::class,'unitmcatch'])->name('unitm-catch');
+        Route::put('superadmin/unitmanage-update',[SuperadminController::class,'updateUnit'])->name('unitmanage-update');
+        Route::delete('superadmin/unitmanage-delete',[SuperadminController::class,'deleteUnit'])->name('unitmanage-delete');
     });
-    Route::group(['middleware' => ['cek_login:admin']], function(){
-        Route::get('admin/dashboard',[AdminController::class,'dashboard'])->name('admin_dashboard');
+    Route::group(['middleware' => ['cek_login:userunit']], function(){
+        Route::get('userunit/dashboard2',[UserunitController::class,'dashboard'])->name('userunit/dashboard2');
+
+        Route::get('userunit/tamuacara-list',[UserunitController::class,'tamuacaraList'])->name('tamuacara-list');
+        Route::get('tamuacara-catch/{id}',[UserunitController::class,'tamuacaraListcatch'])->name('tamuacara-catch');
+
+        Route::get('userunit/tamuunit-list',[UserunitController::class,'tamuunitList'])->name('tamuunit-list');
+        Route::get('tamuunitl-catch/{id}',[UserunitController::class,'tamuunitListcatch'])->name('tamuunitl-catch');
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){
         Route::get('useracara/dashboard',[useracaraController::class,'dashboard'])->name('useracara_dashboard');
