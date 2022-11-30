@@ -21,9 +21,9 @@ class cek_login
             return redirect('login');
           }
 
-          $user = Auth::user();
-
-          if($user->level == $role){
+          $user = Auth::user()->level;
+        
+          if($user == $role){
             return $next($request);
         }
             return redirect('login')->with('error',"kamu gaada akses syg");

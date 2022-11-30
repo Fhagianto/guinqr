@@ -98,7 +98,7 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="text" id="password" class="form-control" name="password">
+                    <input type="password" id="password" class="form-control" name="password">
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -129,6 +129,14 @@
                 <div class="col-9">
                     <input type="email" id="email" class="form-control" name="email">
                     @error('email')
+                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-9">
+                    <input type="hidden" id="level" class="form-control" name="level" value="userunit">
+                    @error('level')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
                 </div>
@@ -181,7 +189,7 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="text" id="password1" class="form-control" name="password">
+                    <input type="password" id="password1" class="form-control" name="password">
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -216,6 +224,15 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-9">
+                    <input type="hidden" id="level1" class="form-control" name="level">
+                    @error('level')
+                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+           
             <div class="form-group row">
                 <label for="" class="col-3"></label>
                 <div class="col-9">
@@ -281,6 +298,7 @@
           $('#email1').val(response.unitmcatch.email_unit);
           $('#username1').val(response.unitmcatch.username);
           $('#status1').val(response.unitmcatch.status);
+          $('#level1').val(response.unitmcatch.level);
           $('#unitm1_id').val(unitm1_id);
         }
       });

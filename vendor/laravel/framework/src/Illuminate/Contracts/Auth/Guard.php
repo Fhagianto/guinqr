@@ -2,6 +2,9 @@
 
 namespace Illuminate\Contracts\Auth;
 
+use App\Models\User;
+use Illuminate\Foundation\Auth\User as AuthUser;
+
 interface Guard
 {
     /**
@@ -17,19 +20,20 @@ interface Guard
      * @return bool
      */
     public function guest();
-
+        
     /**
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function user();
-
+    
     /**
      * Get the ID for the currently authenticated user.
      *
      * @return int|string|null
      */
+   
     public function id();
 
     /**

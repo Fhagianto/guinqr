@@ -39,7 +39,7 @@ Route::get('qr',[TamuController::class, 'qr_view'])->name('qr_view');
 Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth:user,unit']], function(){
     Route::group(['middleware' => ['cek_login:superadmin']], function(){
         Route::get('superadmin/dashboard1',[SuperadminController::class,'index'])->name('superadmin/dashboard1');
 

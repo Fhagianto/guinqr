@@ -59,6 +59,7 @@ class SuperadminController extends Controller
         $unitm->status = $request->status;
         $unitm->email_unit = $request->email;
         $unitm->keterangan = $request->ket;
+        $unitm->level = $request->level;
         $unitm->save();
         return redirect()->back()->with('message','New Data  '. $unitm['nama_unit'] .'  has been Add successfully');
     }

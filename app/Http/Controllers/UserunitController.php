@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TamuAcara;
 use App\Models\TamuUnit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserunitController extends Controller
 {
@@ -14,7 +15,8 @@ class UserunitController extends Controller
     }
     public function tamuunitList(Request $request)
     {
-        $tamuunitl = TamuUnit::all();
+        $t=Auth::guard('unit')->user()->id_unit;
+        $tamuunitl = TamuUnit::with('unit')->where('id_unit', $t)->get();
         return view('userunit.tamuunit-list', ['tamuunitl' => $tamuunitl]);
     }
     public function tamuacaraList(Request $request)

@@ -20,7 +20,12 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-user fa-fw"></i>&nbsp Hi,{{Auth::user()->name}}
+            <i class="fas fa-user fa-fw"></i>&nbsp Hi,
+            @if ( Str::length(Auth::guard('user')->user()) > 0)
+                {{Auth::guard('user')->user()->name}}
+            @elseif ( Str::length(Auth::guard('unit')->user()) > 0)
+                {{Auth::guard('unit')->user()->level}}
+            @endif
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Change Password</a>
