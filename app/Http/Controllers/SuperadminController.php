@@ -99,16 +99,18 @@ class SuperadminController extends Controller
         $userm->email = $request->email;
         $userm->password = Hash::make($request->password);
         $userm->level = $request->level;
+        $userm->status = $request->status;
         $userm->update();
         return redirect()->back()->with('message','New Data  '. $userm['name'] .'  has been Updated successfully');
     }
     public function updateUnit(Request $request){
-
         $unitm1_id = $request->unitm1_id;
         $unitm = Unit::find($unitm1_id);
         $unitm->nama_unit = $request->namaunit;
         $unitm->username = $request->username;
-        $unitm->password = Hash::make($request->password);
+        if ($request->password != null || $request->password != "" ) {
+            $unitm->password = Hash::make($request->password);
+        }
         $unitm->status = $request->status;
         $unitm->email_unit = $request->email;
         $unitm->keterangan = $request->ket;

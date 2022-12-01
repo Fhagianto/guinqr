@@ -24,7 +24,11 @@ class AuthController extends Controller
             //disini ngecek role
             if (Auth::guard('user')->attempt($kredensil)) {
                 $user = Auth::guard('user')->user()->level;
-               
+                $user1 = Auth::guard('user')->user()->status;
+                if ($user1 == '2') {
+                    return redirect('login')->with('error',"Akun Di Non Aktifkan. Silahkan Hubungi Superadmin!!");
+                }
+
                 if ($user == 'superadmin') {
                     return redirect('superadmin/dashboard1');
                 } elseif ($user == 'userunit') {

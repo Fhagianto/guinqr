@@ -111,7 +111,7 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="password" id="password" class="form-control" name="password">
+                    <input type="password" id="password" class="form-control" name="password" required >
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -123,7 +123,6 @@
                 <div class="col-9">
                      <select class="form-control"  id="level" class="form-control" name="level" aria-placeholder="pilihlevel">
                         <option value="superadmin">Superadmin</option>
-                        <option value="userunit">User Unit</option>
                         <option value="security">Security</option>
                         <option value="useracara">Useracara</option>
                     @error('level')
@@ -133,12 +132,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="status" class="col-3">Status</label>
+                <label for="level" class="col-3">Status</label>
                 <div class="col-9">
-                    <input type="number" id="status" class="form-control" name="status">
+                     <select class="form-control"  id="status" class="form-control" name="status" aria-placeholder="pilihlevel">
+                        <option value="1">Akun Active</option>
+                        <option value="2">Akun Non Active</option>
                     @error('status')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
+                </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -200,7 +202,7 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="password" id="password1" class="form-control" name="password">
+                    <input type="password" id="password1" class="form-control" name="password" required>
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -212,7 +214,6 @@
                 <div class="col-9">
                      <select class="form-control"  id="level1" class="form-control" name="level" aria-placeholder="pilihlevel">
                         <option value="superadmin">Superadmin</option>
-                        <option value="userunit">User Unit</option>
                         <option value="security">Security</option>
                         <option value="useracara">Useracara</option>
                     @error('level')
@@ -221,6 +222,20 @@
                 </select>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="level" class="col-3">Status</label>
+                <div class="col-9">
+                     <select class="form-control"  id="status1" class="form-control" name="status" aria-placeholder="pilihlevel">
+                        <option value="1">Akun Active</option>
+                        <option value="2">Akun Non Active</option>
+                    @error('status')
+                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                    @enderror
+                </select>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <label for="" class="col-3"></label>
                 <div class="col-9">
@@ -285,6 +300,7 @@
           $('#username1').val(response.usermcatch.username);
           $('#email1').val(response.usermcatch.email);
           $('#level1').val(response.usermcatch.level);
+          $('#status1').val(response.usermcatch.status);
           $('#userm1_id').val(userm1_id);
         }
       });

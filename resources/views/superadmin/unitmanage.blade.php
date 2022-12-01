@@ -34,6 +34,7 @@
                                     <th>Username </th>
                                     <th>Email Unit</th>
                                     <th>Keterangan </th>
+                                    <th>Status </th>
                                     <th style="text-align: center;">Action</th>
                                 </tr>
                             </thead>
@@ -45,6 +46,7 @@
                                             <td>{{ $unitm1->username }}</td>
                                             <td>{{ $unitm1->email_unit }}</td>
                                             <td>{{ $unitm1->keterangan }}</td>
+                                            <td>@if($unitm1->status == 1) Tampil @elseif ($unitm1->status == 2) Tidak Tampil  @endif</td>
                                             <td style="text-align: center;">
                                                 <button type="button" class="btn btn-warning editbtn btn-sm" value="{{$unitm1->id_unit}}" >Edit</button>
                                                 <button type="button" class="btn btn-danger dltbtn btn-sm" value="{{$unitm1->id_unit}}" >Delete</button>
@@ -80,7 +82,7 @@
             <div class="form-group row">
                 <label for="namaunit" class="col-3">Nama Unit</label>
                 <div class="col-9">
-                    <input type="text" id="namaunit" class="form-control" name="namaunit">
+                    <input type="text" id="namaunit" class="form-control" name="namaunit"required>
                     @error('namaunit')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -89,7 +91,7 @@
             <div class="form-group row">
                 <label for="username" class="col-3">Username</label>
                 <div class="col-9">
-                    <input type="text" id="username" class="form-control" name="username">
+                    <input type="text" id="username" class="form-control" name="username" required>
                     @error('username')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -98,26 +100,29 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="password" id="password" class="form-control" name="password">
+                    <input type="password" id="password" class="form-control" name="password" required>
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group row">
-                <label for="status" class="col-3">Status</label>
+                <label for="level" class="col-3">Status</label>
                 <div class="col-9">
-                    <input type="text" id="status" class="form-control" name="status">
+                     <select class="form-control"  id="status" class="form-control" name="status" aria-placeholder="pilihlevel" required>
+                        <option value="1">Tampilkan Unit Dari Tamu</option>
+                        <option value="2">Sembuyikan Unit Dari Tamu</option>
                     @error('status')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
+                </select>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="ket" class="col-3">Keterangan</label>
                 <div class="col-9">
-                    <input type="text" id="ket" class="form-control" name="ket">
+                    <input type="text" id="ket" class="form-control" name="ket" required>
                     @error('ket')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -135,7 +140,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-9">
-                    <input type="hidden" id="level" class="form-control" name="level" value="userunit">
+                    <input type="hidden" id="level" class="form-control" name="level" value="userunit" required>
                     @error('level')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -171,7 +176,7 @@
             <div class="form-group row">
                 <label for="namaunit" class="col-3">Nama Unit</label>
                 <div class="col-9">
-                    <input type="text" id="namaunit1" class="form-control" name="namaunit">
+                    <input type="text" id="namaunit1" class="form-control" name="namaunit" required>
                     @error('namaunit')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -180,7 +185,7 @@
             <div class="form-group row">
                 <label for="username" class="col-3">Username</label>
                 <div class="col-9">
-                    <input type="text" id="username1" class="form-control" name="username">
+                    <input type="text" id="username1" class="form-control" name="username" required>
                     @error('username')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -189,26 +194,29 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="password" id="password1" class="form-control" name="password">
+                    <input type="password" id="password1" class="form-control" name="password" >
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group row">
-                <label for="status" class="col-3">Status</label>
+                <label for="level" class="col-3">Status</label>
                 <div class="col-9">
-                    <input type="text" id="status1" class="form-control" name="status">
+                     <select class="form-control"  id="status1" class="form-control" name="status" aria-placeholder="pilihlevel" required>
+                        <option value="1">Tampilkan Unit Dari Tamu</option>
+                        <option value="2">Sembuyikan Unit Dari Tamu</option>
                     @error('status')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
+                </select>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="ket" class="col-3">Keterangan</label>
                 <div class="col-9">
-                    <input type="text" id="ket1" class="form-control" name="ket">
+                    <input type="text" id="ket1" class="form-control" name="ket" required>
                     @error('ket')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror
@@ -218,7 +226,7 @@
             <div class="form-group row">
                 <label for="email" class="col-3">Email Unit</label>
                 <div class="col-9">
-                    <input type="email" id="email1" class="form-control" name="email">
+                    <input type="email" id="email1" class="form-control" name="email" required>
                     @error('email')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror

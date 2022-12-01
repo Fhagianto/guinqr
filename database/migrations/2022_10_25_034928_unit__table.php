@@ -24,6 +24,7 @@ class UnitTable extends Migration
             $table->string('email_unit')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('status');
+            $table->string('level');
             $table->rememberToken();
             $table->timestamps();
         });
