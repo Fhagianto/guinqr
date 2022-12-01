@@ -46,7 +46,7 @@
                                             <td>{{ $userm1->username }}</td>
                                             <td>{{ $userm1->email }}</td>
                                             <td>{{ $userm1->level }}</td>
-                                            <td>{{ $userm1->status }}</td>
+                                            <td>@if ($userm1->status == 1 ) Akun Active @elseif($userm1->status == 2) Akun Non Active @endif</td>
                                             <td style="text-align: center;">
                                                 <button type="button" class="btn btn-primary editbtn btn-sm" value="{{$userm1->id}}" >Edit</button>
                                                 <button type="button" class="btn btn-danger dltbtn btn-sm" value="{{$userm1->id}}" >Delete</button>
@@ -202,7 +202,7 @@
             <div class="form-group row">
                 <label for="password" class="col-3">Password</label>
                 <div class="col-9">
-                    <input type="password" id="password1" class="form-control" name="password" required>
+                    <input type="password" id="password1" class="form-control" name="password" >
                     @error('password')
                         <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                     @enderror

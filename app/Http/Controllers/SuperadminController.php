@@ -97,7 +97,9 @@ class SuperadminController extends Controller
         $userm->name = $request->name;
         $userm->username = $request->username;
         $userm->email = $request->email;
-        $userm->password = Hash::make($request->password);
+        if ($request->password != null || $request->password != "") {
+            $userm->password = Hash::make($request->password);
+        }
         $userm->level = $request->level;
         $userm->status = $request->status;
         $userm->update();
