@@ -56,7 +56,7 @@ class AuthController extends Controller
         $request->session()->flush();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        Auth::logout();
+        Auth::guard('user','unit')->logout();
         return Redirect('login')->with('pesan',"Logout Berhasil");
     }
 }
