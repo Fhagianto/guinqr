@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AcaraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         // $datas = acara::all();
@@ -26,11 +21,6 @@ class AcaraController extends Controller
         ));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $model = new acara;
@@ -39,12 +29,6 @@ class AcaraController extends Controller
         ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $user = Auth::user();
@@ -61,23 +45,11 @@ class AcaraController extends Controller
         return redirect('acara');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $model = acara::find($id);
@@ -86,13 +58,6 @@ class AcaraController extends Controller
         ));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $model = acara::find($id);
@@ -107,12 +72,6 @@ class AcaraController extends Controller
         return redirect('acara');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         acara::where('id_acara', $id)
@@ -120,13 +79,12 @@ class AcaraController extends Controller
 
         return redirect('acara');
     }
-    // public function dashboard1()
-    // {
-    //     $BukuTamuAcara = BukuTamuAcara::with('TamuAcara.acara')->count();
-    //     $BukuTamuUnit = BukuTamuUnit::with('TamuUnit.unit')->count();
-    //     return view('security.dashboard')
-    //     ->with('BukuTamuAcara',$BukuTamuAcara)
-    //     ->with('BukuTamuUnit',$BukuTamuUnit)
-    //     ;
-    // }
+
+    public function tamu_view($id) {
+        $data = acara::where('id_acara', $id);
+        return view('useracara.acara-tamu-view', compact(
+            'data'
+        ));
+        // return redirect('useracara.acara-tamu-view')->with('data',$data);
+    }
 }

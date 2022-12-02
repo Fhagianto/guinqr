@@ -4,7 +4,7 @@
 
 @endsection
 @section('main')
-{{ dd($data) }}
+{{ dd($data,session('data')) }}
 <div class="container-fluid">
     <div class="content header" >
         <h1 class="m-1" style="text-transform: capitalize">Acara</h1>

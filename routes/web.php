@@ -26,6 +26,7 @@ use App\Http\Controllers\UserunitController;
 Route::get('/', function () {
     return view('welcome',["title"=>"E-GUIN QR | Welcome"]);
 });
+
 Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login',[AuthController::class,'proses_login'])->name('proses_login');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
@@ -34,7 +35,6 @@ Route::get('registrasi/tamu-unit',[TamuController::class,'tamu_unit'])->name('ta
 Route::get('registrasi/tamu-acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
 Route::post('registrasi/tamu-unit/create',[TamuController::class,'create_tamu_unit'])->name('create_tamu_unit') ;
 Route::post('registrasi/tamu-acara/create',[TamuController::class,'create_tamu_acara'])->name('create_tamu_acara') ;
-
 Route::get('qr',[TamuController::class, 'qr_view'])->name('qr_view');
 Route::get('qr_code',[TamuController::class, 'generate'])->name('generate');
 
@@ -70,7 +70,8 @@ Route::group(['middleware' => ['auth:user,unit']], function(){
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){
         Route::get('useracara/dashboard',[useracaraController::class,'dashboard'])->name('useracara_dashboard');
-        Route::post('security/tamu-acara/view_buku_tamu',[securityController::class,'view_buku_tamu'])->name('view_buku_tamu');
+        Route::post('useracara/tamu_view',[AcaraController::class,'tamu_view'])->name('tamu_view');
+        Route::resource('acara', AcaraController::class);
     });
     Route::group(['middleware' => ['cek_login:security']], function(){
         Route::get('security/dashboard',[securityController::class,'dashboard'])->name('security_dashboard');
@@ -88,4 +89,4 @@ Route::group(['middleware' => ['auth:user,unit']], function(){
 
     });
 });
-Route::resource('acara', AcaraController::class);
+
