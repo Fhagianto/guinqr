@@ -16,8 +16,8 @@ class CreateBukuTamuAcarasTable extends Migration
         Schema::create('buku_tamu_acaras', function (Blueprint $table) {
             $table->id('id_buku_tamu_acara');
             $table->string('id_tamu_acara');
-            $table->timestamp('cek_in')->nullable();
-            $table->timestamp('cek_out')->nullable();
+            $table->dateTime('cek_in')->nullable();
+            $table->dateTime('cek_out')->nullable();
             $table->string('no_badge')->nullable();
             $table->integer('id_user_ci');
             $table->integer('id_user_co')->nullable();

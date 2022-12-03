@@ -16,8 +16,8 @@ class CreateBukuTamuUnitsTable extends Migration
         Schema::create('buku_tamu_units', function (Blueprint $table) {
             $table->id('id_buku_tamu_unit');
             $table->integer('id_tamu_unit');
-            $table->timestamp('cek_in');
-            $table->timestamp('cek_out')->nullable();
+            $table->dateTime('cek_in');
+            $table->dateTime('cek_out')->nullable();
             $table->string('no_badge')->nullable();
             $table->integer('id_user_ci');
             $table->integer('id_user_co')->nullable();
