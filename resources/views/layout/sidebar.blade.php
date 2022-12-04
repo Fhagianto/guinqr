@@ -5,25 +5,25 @@
       <a class="brand-link" href="{{('/superadmin/dashboard1')}}">
         <img src="{{ asset ('img') }}/logo2.svg" alt="E-GUIN Logo" class="brand-image img-circle elevation-2">
         <span class="brand-text font-weight-light"><b>E-GUIN</b>QR</span>
-      </a>  
+      </a>
     @endcan
     @can('isUserunit')
       <a class="brand-link" href="{{('/userunit/dashboard2')}}">
         <img src="{{ asset ('img') }}/logo2.svg" alt="E-GUIN Logo" class="brand-image img-circle elevation-2">
         <span class="brand-text font-weight-light"><b>E-GUIN</b>QR</span>
-      </a>  
+      </a>
     @endcan
     @can('isSecurity')
       <a class="brand-link" href="#">
         <img src="{{ asset ('img') }}/logo2.svg" alt="E-GUIN Logo" class="brand-image img-circle elevation-2">
         <span class="brand-text font-weight-light"><b>E-GUIN</b>QR</span>
-      </a>  
+      </a>
     @endcan
     @can('isUseracara')
       <a class="brand-link" href="#">
         <img src="{{ asset ('img') }}/logo2.svg" alt="E-GUIN Logo" class="brand-image img-circle elevation-2">
         <span class="brand-text font-weight-light"><b>E-GUIN</b>QR</span>
-      </a>  
+      </a>
     @endcan
 
     <!-- Sidebar -->
@@ -118,7 +118,7 @@
                @endcan
           @can('isUseracara')
           <li class="nav-item ">
-            <a href="/security/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
+            <a href="/useracara/dashboard" class="nav-link {{ Request::is('dashboard')?'active':'' }}">
             <i class="nav-icon fas fa-tachometer-alt-fast"></i>
             <p>Dashboard</p>
             </a>
@@ -127,12 +127,6 @@
             <a href="{{url('acara')}}" class="nav-link {{ Request::is('acara')?'active':'' }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Acara</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::is('acara1')?'active':'' }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List Tamu Acara</p>
             </a>
           </li>
 

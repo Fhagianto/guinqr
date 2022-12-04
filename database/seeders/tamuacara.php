@@ -21,7 +21,7 @@ class tamuacara extends Seeder
                 'id_tamu_acara'=> $id,
                 'nama' => 'nama 2 acara',
                 'no_telpon' => '081257293485',
-                'email' => 'email1acara@gmail.com',
+                'email' => 'email2acara@gmail.com',
                 'id_acara'=>'1',
                 'status'=>'1',
             ],

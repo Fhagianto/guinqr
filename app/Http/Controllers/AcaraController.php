@@ -7,7 +7,7 @@ use App\Models\BukuTamuAcara;
 use App\Models\TamuAcara;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+// https://laravel.com/docs/9.x/controllers#actions-handled-by-resource-controller
 class AcaraController extends Controller
 {
     public function index()
@@ -47,7 +47,18 @@ class AcaraController extends Controller
 
     public function show($id)
     {
-        //
+        $acara = acara::where('id_acara', $id)->first();
+        $tamu = BukuTamuAcara::with('TamuAcara.acara')
+        ->whereRelation('TamuAcara.acara','id_acara', $id)
+        ->count();
+        $btamu = BukuTamuAcara::with('TamuAcara.acara')
+        ->whereRelation('TamuAcara.acara','id_acara', $id)
+        ->get();
+        return view('useracara.acara-show')
+        ->with('acara',$acara)
+        ->with('tamu',$tamu)
+        ->with('btamu',$btamu)
+        ;
     }
 
     public function edit($id)
@@ -78,13 +89,5 @@ class AcaraController extends Controller
         ->update(['status' => '3']);
 
         return redirect('acara');
-    }
-
-    public function tamu_view($id) {
-        $data = acara::where('id_acara', $id);
-        return view('useracara.acara-tamu-view', compact(
-            'data'
-        ));
-        // return redirect('useracara.acara-tamu-view')->with('data',$data);
     }
 }

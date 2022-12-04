@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth:user,unit']], function(){
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){
         Route::get('useracara/dashboard',[useracaraController::class,'dashboard'])->name('useracara_dashboard');
-        Route::post('useracara/tamu_view',[AcaraController::class,'tamu_view'])->name('tamu_view');
+        // Route::post('useracara/tamu_view',[AcaraController::class,'tamu_view'])->name('tamu_view');
         Route::resource('acara', AcaraController::class);
     });
     Route::group(['middleware' => ['cek_login:security']], function(){
