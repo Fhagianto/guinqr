@@ -20,7 +20,7 @@ class Unit_AcaraSeeder extends Seeder
             [
                 'nama_unit' => 'Humas',
                 'username' => 'Humas',
-                'password' => 'Humas123',
+                'password' => bcrypt('Humas123'),
                 'keterangan' => 'lantai 2 gedung utama',
                 'email_unit' => 'humas@gmail.com',
                 'status'=>'1',
@@ -29,7 +29,7 @@ class Unit_AcaraSeeder extends Seeder
             [
                 'nama_unit' => 'Informatika',
                 'username' => 'Informatika',
-                'password' => 'Informatika123',
+                'password' => bcrypt('Informatika123'),
                 'keterangan' => 'lantai 6 Gedung Utama',
                 'email_unit' => 'informatika@gmail.com',
                 'status'=>'1',
@@ -38,7 +38,7 @@ class Unit_AcaraSeeder extends Seeder
             [
                 'nama_unit' => 'Multimedia dan Jaringan',
                 'username' => 'Multimedia dan Jaringan',
-                'password' => 'mulmed123',
+                'password' => bcrypt('mulmed123'),
                 'keterangan' => 'lantai 6 Gedung Utama',
                 'email_unit' => 'muljar@gmail.com',
                 'status'=>'1',

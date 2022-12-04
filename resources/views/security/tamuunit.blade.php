@@ -74,7 +74,7 @@
                             <form action="{{route('COunit')}}" method="POST" id="regForm" name="regForm">
                                 @csrf
                                 <input type="hidden" id="id_buku_tamu_unit" name="id_buku_tamu_unit" value='{{ $value->id_buku_tamu_unit }}'>
-                                <input type="hidden" id="id_user" name="id_user" value='{{ Auth::user()->id }}'>
+                                <input type="hidden" id="id_user" name="id_user" value='{{ Auth::guard('user')->user()->id }}'>
                                 <button class="btn btn-danger" type="submit"><i class="fa-sharp fa-solid fa-right-from-bracket"></i> Cek out</button>
                             </form>
                         @endif
