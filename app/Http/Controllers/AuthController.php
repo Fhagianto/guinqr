@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -42,13 +43,13 @@ class AuthController extends Controller
 
             } else if (Auth::guard('unit')->attempt($kredensil)) {
                 $user11 = Auth::guard('unit')->user()->level;
-                
-               
+
+
                 if ($user11 == 'userunit') {
                     return redirect('userunit/dashboard2');
                 } else
                 return redirect()->intended('/');
-            } 
+            }
             return redirect('login')->with('error',"Salah Username / Password");
     }
     public function logout(Request $request)
@@ -57,6 +58,16 @@ class AuthController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         Auth::guard('user','unit')->logout();
+        return Redirect('login')->with('pesan',"Logout Berhasil");
+    }
+    public function ganti_pass(Request $request)
+    {
+        dd($request,Auth::guard('user','unit'));
+        // auth:user,unit;
+        User::where('id_buku_tamu_unit', $request->id_buku_tamu_unit)
+        ->update(['cek_out' => now(),'id_user_co'=> $request->id_user]);
+
+        Auth::guard('user','unit');
         return Redirect('login')->with('pesan',"Logout Berhasil");
     }
 }
