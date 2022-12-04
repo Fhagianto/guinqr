@@ -68,7 +68,7 @@
                         <form action="{{url('security/tamu-acara/cek-out')}}" method="POST" id="regForm">
                             @csrf
                             <input type="hidden" id="id_buku_tamu_acara" name="id_buku_tamu_acara" value='{{ $value->id_buku_tamu_acara }}'>
-                            <input type="hidden" id="id_user" name="id_user" value='{{ Auth::user()->id }}'>
+                            <input type="hidden" id="id_user" name="id_user" value='{{ Auth::guard('user')->user()->id }}'>
                             <button class="btn btn-danger" type="submit"><i class="fa-sharp fa-solid fa-right-from-bracket"></i> Cek out</button>
                         </form>
                     @endif
