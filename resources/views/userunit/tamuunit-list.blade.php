@@ -10,6 +10,71 @@
         </div>
        {{--  <div class="row"> --}}
             {{-- <div class="col-md-12"> --}}
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-outline card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">Acara Detail</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Nama Unit</td>
+                                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td>{{ $unitshow->nama_unit }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Username</td>
+                                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td>{{ $unitshow->keterangan }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Keterangan</td>
+                                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td>{{ $unitshow->keterangan }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email Unit</td>
+                                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td>{{ $unitshow->email_unit }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status</td>
+                                                <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                                                <td>@if ($unitshow->status =="1")  Unit Tampilkan dari Tamu @elseif ($acara->status =="2") Unit Tidak Tampil dari Tamu @endif</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card card-outline card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">Tamu</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="col-12 col-sm-8">
+                                            <div class="info-box bg-light">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text text-center text-muted">Total Tamu</span>
+                                                    <span class="info-box-number text-center text-muted mb-0">{{ $count }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h5 style="float: left;"><strong>All Tamu Unit Data</strong></h5>

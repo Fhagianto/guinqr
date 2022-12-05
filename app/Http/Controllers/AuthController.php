@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use App\Models\User;
+use App\Models\UserManage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
@@ -62,12 +65,25 @@ class AuthController extends Controller
     }
     public function ganti_pass(Request $request)
     {
-        dd($request,Auth::guard('user','unit'));
-        // auth:user,unit;
-        User::where('id_buku_tamu_unit', $request->id_buku_tamu_unit)
-        ->update(['cek_out' => now(),'id_user_co'=> $request->id_user]);
+       
+        $a = Auth::guard('unit')->user();
+        $b = Auth::guard('user')->user();
 
-        Auth::guard('user','unit');
-        return Redirect('login')->with('pesan',"Logout Berhasil");
+        if ($a != null ) {
+            $id1 = ($a->id_unit);
+            $unitchg = Unit::find($id1);
+            $unitchg->password = Hash::make($request->pwbaru);
+            $unitchg->update();
+            return redirect()->back()->with('r',"New Password  " . $unitchg['nama_unit'] . "  has been Updated successfully");
+        } elseif ($b != null ) {
+            $id2 = ($b->id);
+            $userchg = UserManage::find($id2);
+            $userchg->password = Hash::make($request->pwbaru);
+            $userchg->update();
+            return redirect()->back()->with('r',"New Password  " . $userchg['name'] . "  has been Updated successfully");
+        } else {
+            return Redirect('login')->with('pesan',"Kamu Belum Login");
+        }
+        
     }
 }

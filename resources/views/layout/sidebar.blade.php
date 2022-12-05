@@ -77,13 +77,19 @@
               </li>
                @endcan
                @can('isUserunit')
-               <li class="nav-header ">Menu</li>
+               <li class="nav-header ">Menu
                <li class="nav-item">
                  <a href="/userunit/dashboard2" class="nav-link {{Request::is('userunit/dashboard2') ? 'active':''}}">
                    <i class="nav-icon fas fa-passport"></i>
                    <p>Dashboard</p>
                  </a>
                </li>
+               <li class="nav-item">
+                  <a href="/userunit/tamuunit-list" class="nav-link {{Request::is('userunit/tamuunit-list') ? 'active':''}}">
+                  <i class="nav-icon fas fa-computer"></i>
+                  <p>Unit</p>
+                  </a>
+             </li>
            </li>
           {{--  <li class="nav-item">
              <a href="" class="nav-link">
@@ -103,18 +109,13 @@
                </li>
              </ul>
            </li> --}}
-           <li class="nav-item">
+          {{--  <li class="nav-item">
              <a href="/userunit/tamuacara-list" class="nav-link {{Request::is('userunit/tamuacara-list') ? 'active':''}}">
              <i class="nav-icon fas fa-clipboard"></i>
              <p>Acara</p>
              </a>
-          </li>
-           <li class="nav-item">
-             <a href="/userunit/tamuunit-list" class="nav-link {{Request::is('userunit/tamuunit-list') ? 'active':''}}">
-             <i class="nav-icon fas fa-computer"></i>
-             <p>Unit</p>
-             </a>
-          </li>
+          </li --}}>
+           
                @endcan
           @can('isUseracara')
           <li class="nav-item ">

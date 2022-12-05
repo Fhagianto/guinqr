@@ -38,8 +38,30 @@
   </nav>
     <div class="modal inmodal fade" id="modal-ganti_pass" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-xs">
+            @if(session('r'))
+            <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
+            <script>
+                const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+    
+                Toast.fire({
+                    icon: 'info',
+                    title: '{{session('r')}}',
+                })
+            </script>
+            @endif
             <form name="frm_edit" id="frm_edit" class="form-horizontal" action="{{route('ganti_pass')}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Ganti Password</h4>
@@ -49,7 +71,7 @@
                         <div class="form-group">
                             <label class="col-lg-5 control-label">Password Baru</label>
                             <div class="col-lg-12">
-                                <input type="text" name="ganti_pass" id="ganti_pass" placeholder="Password Baru" class="form-control" value=''>
+                                <input type="text" name="pwbaru" id="pwbaru" placeholder="Password Baru" class="form-control" value=''>
                             </div>
                         </div>
                     </div>
@@ -62,4 +84,5 @@
             </form>
         </div>
     </div>
+
   <!-- /.navbar -->

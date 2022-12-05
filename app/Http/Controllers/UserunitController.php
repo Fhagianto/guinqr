@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TamuAcara;
 use App\Models\TamuUnit;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +18,11 @@ class UserunitController extends Controller
     {
         $t=Auth::guard('unit')->user()->id_unit;
         $tamuunitl = TamuUnit::with('unit')->where('id_unit', $t)->get();
-        return view('userunit.tamuunit-list', ['tamuunitl' => $tamuunitl]);
+        $unitshow = Unit::all()->where('id_unit', $t)->first();
+        $count = TamuUnit::all()->where('id_unit', $t)->count();
+        return view('userunit.tamuunit-list', ['tamuunitl' => $tamuunitl, 'unitshow' => $unitshow, 'count' => $count]);
     }
+   
     public function tamuacaraList(Request $request)
     {
         $tamuacaral = TamuAcara::all();

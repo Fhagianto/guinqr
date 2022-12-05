@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login',[AuthController::class,'proses_login'])->name('proses_login');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
-Route::get('ganti_pass',[AuthController::class,'ganti_pass'])->name('ganti_pass');
+Route::put('ganti_pass',[AuthController::class,'ganti_pass'])->name('ganti_pass');
 
 Route::get('registrasi/tamu-unit',[TamuController::class,'tamu_unit'])->name('tamu_unit') ;
 Route::get('registrasi/tamu-acara',[TamuController::class,'tamu_acara'])->name('tamu_acara') ;
