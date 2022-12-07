@@ -107,15 +107,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <div class="card-footer">
+                                    <div class="card-footer">
                                         <a class="btn" style="text-align:center; margin-left:auto; margin-right:auto"
                                             download="QR-CODE Tamu"
                                             href="data:image/png;base64, {!! base64_encode(QrCode::size(250)->format('png')->generate($tamu)) !!}"
                                         >
                                         <i class="fa fa-download"></i> Download
                                         </a>
-                                        <button class="btn" href="{{ QrCode::format('svg')->size(250)->generate(bcrypt($tamu))}}.svg"><i class="fa fa-download"></i> Download</button>
-                                    </div> --}}
+                                        {{-- <button class="btn" href="{{ QrCode::format('svg')->size(250)->generate(bcrypt($tamu))}}.svg"><i class="fa fa-download"></i> Download</button> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -122,6 +122,7 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+            'LaravelPWA\\' => 11,
         ),
         'I' => 
         array (
@@ -398,6 +399,10 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'LaravelPWA\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/silviolleite/laravelpwa',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -527,12 +532,12 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AcaraController' => __DIR__ . '/../..' . '/app/Http/Controllers/AcaraController.php',
-        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\SuperadminController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuperadminController.php',
         'App\\Http\\Controllers\\TamuController' => __DIR__ . '/../..' . '/app/Http/Controllers/TamuController.php',
         'App\\Http\\Controllers\\UnitController' => __DIR__ . '/../..' . '/app/Http/Controllers/UnitController.php',
+        'App\\Http\\Controllers\\UserunitController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserunitController.php',
         'App\\Http\\Controllers\\securityController' => __DIR__ . '/../..' . '/app/Http/Controllers/securityController.php',
         'App\\Http\\Controllers\\useracaraController' => __DIR__ . '/../..' . '/app/Http/Controllers/useracaraController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -551,6 +556,7 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
         'App\\Models\\TamuUnit' => __DIR__ . '/../..' . '/app/Models/TamuUnit.php',
         'App\\Models\\Unit' => __DIR__ . '/../..' . '/app/Models/Unit.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\UserManage' => __DIR__ . '/../..' . '/app/Models/UserManage.php',
         'App\\Models\\acara' => __DIR__ . '/../..' . '/app/Models/acara.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -738,7 +744,11 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\AkunSeeder' => __DIR__ . '/../..' . '/database/seeders/AkunSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
-        'Database\\Seeders\\Unit_Seeder' => __DIR__ . '/../..' . '/database/seeders/Unit_Seeder.php',
+        'Database\\Seeders\\Unit_AcaraSeeder' => __DIR__ . '/../..' . '/database/seeders/Unit_AcaraSeeder.php',
+        'Database\\Seeders\\btamuacara' => __DIR__ . '/../..' . '/database/seeders/btamuacara.php',
+        'Database\\Seeders\\btamuunit' => __DIR__ . '/../..' . '/database/seeders/btamuunit.php',
+        'Database\\Seeders\\tamuacara' => __DIR__ . '/../..' . '/database/seeders/tamuacara.php',
+        'Database\\Seeders\\tamuunit' => __DIR__ . '/../..' . '/database/seeders/tamuunit.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
@@ -2778,6 +2788,11 @@ class ComposerStaticInitb26b2e79a9be91fbed395ff0ec0750df
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'LaravelPWA\\Http\\Controllers\\LaravelPWAController' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Http/Controllers/LaravelPWAController.php',
+        'LaravelPWA\\Providers\\LaravelPWAServiceProvider' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Providers/LaravelPWAServiceProvider.php',
+        'LaravelPWA\\Providers\\RouteServiceProvider' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Providers/RouteServiceProvider.php',
+        'LaravelPWA\\Services\\ManifestService' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Services/ManifestService.php',
+        'LaravelPWA\\Services\\MetaService' => __DIR__ . '/..' . '/silviolleite/laravelpwa/Services/MetaService.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
         'Laravel\\Sail\\Console\\PublishCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/PublishCommand.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',

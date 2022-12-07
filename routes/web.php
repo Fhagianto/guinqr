@@ -26,6 +26,10 @@ use App\Http\Controllers\UserunitController;
 Route::get('/', function () {
     return view('welcome',["title"=>"E-GUIN QR | Welcome"]);
 });
+Route::get('/offline', function () {
+    return view('vendor.laravelpwa.offline',["title"=>"E-GUIN QR | Offline"]);
+});
+
 
 Route::get('login',[AuthController::class,'index'])->name('login') ;
 Route::post('proses_login',[AuthController::class,'proses_login'])->name('proses_login');

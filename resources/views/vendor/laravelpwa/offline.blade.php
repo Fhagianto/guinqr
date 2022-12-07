@@ -30,6 +30,23 @@
 </head>
 
 <body class="">
+    <script src="{{ asset ('AdminLTE') }}/plugins/sweetalert2/sweetalert22.js"></script>
+        <script>
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-start',
+            showConfirmButton: false,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Anda sedang offline',
+            })
+    </script>
     <div class="header">
         <div class="relative flex items-top justify-center min-h-screen items-center py-4 sm:pt-0">
             @if (Route::has('login'))
