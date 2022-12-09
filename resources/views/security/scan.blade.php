@@ -20,7 +20,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card card-outline card-secondary">
                     <div class="card-header">

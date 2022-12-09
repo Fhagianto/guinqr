@@ -24,14 +24,6 @@ class AkunSeeder extends Seeder
                 'password' => bcrypt('sadmin123'),
             ],
             [
-                'username' => 'admin',
-                'name' => 'Clara',
-                'email' => 'admin@gmail.com',
-                'status' => '1',
-                'level' => 'admin',
-                'password' => bcrypt('admin123'),
-            ],
-            [
                 'username' => 'security',
                 'name' => 'hadi kusuma dinata',
                 'email' => 'security@gmail.com',

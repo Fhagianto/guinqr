@@ -14,7 +14,9 @@ class AcaraController extends Controller
     {
         // $datas = acara::all();
         // $units = Unit::where("status", '1')->get();
-        $datas = acara::Where("status", '1')->orWhere("status", '2')->get();
+        $t=Auth::guard('user')->user()->id;
+        // $tamuunitl = acara::with('unit')->where('id_user_acara', $t)->get();
+        $datas = acara::where('id_user_acara', $t)->Where("status", '1')->orWhere("status", '2')->get();
         $cekin = TamuAcara::Where("status", '2')->get();
         return view('useracara.acara', compact(
             'datas','cekin'

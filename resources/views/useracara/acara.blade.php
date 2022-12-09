@@ -30,6 +30,7 @@
                         <th scope="col">Email Acara</th>
                         <th scope="col">Tgl Mulai Acara</th>
                         <th scope="col">Tgl Selesai Acara</th>
+                        <th scope="col">Status Acara</th>
                         <th scope="col">Detail</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delate</th>
@@ -45,6 +46,7 @@
                             <td>{{ $value->email_acara }}</td>
                             <td>{{ $value->tgl_start }}</td>
                             <td>{{ $value->tgl_end }}</td>
+                            <td>@if ($value->status =="1") Aktif @elseif ($value->status =="2") Tidak Aktif @endif</td>
                             <td><a class="btn btn-info" href="{{url('acara/'.$value->id_acara)}}"><i class="fa-sharp fa-solid fa-eye"></i></a></td>
                             <td><a class="btn btn-info" href="{{url('acara/'.$value->id_acara.'/edit')}}"><i class="fa-sharp fa-solid fa-pen-to-square"></i></a></td>
                             <td>
@@ -66,6 +68,7 @@
                         <th scope="col">Email Acara</th>
                         <th scope="col">Tgl Mulai Acara</th>
                         <th scope="col">Tgl Selesai Acara</th>
+                        <th scope="col">Status Acara</th>
                         <th scope="col">Lihat Tamu</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delate</th>

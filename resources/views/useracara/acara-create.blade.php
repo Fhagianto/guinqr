@@ -86,8 +86,8 @@
                                 required
                                 placeholder="Masukkan Status">
                                 <option selected="selected"></option>
-                                <option value="1" >Tampilkan acara dari tamu</option>
-                                <option value="2" >Sembunyikan acara dari tamu</option>
+                                <option value="1" >Aktif</option>
+                                <option value="2" >Tidak Aktif</option>
                             </select>
                             @if($errors->has('status'))
                             <span class="error">{{ $errors->first('status') }}</span>
@@ -110,8 +110,8 @@
                 <div class="card-body">
                     <h4>Penjelasan</h4>
                     <h6>1. Status Acara</h6>
-                    <small>A. Tampilkan acara dari tamu : Tamu acara <b>dapat</b> memilih acara anda</small><br>
-                    <small>B. Sembunyikan acara dari tamu : Tamu acara <b>tidak dapat</b>  memilih acara anda</small>
+                    <small>A. Aktif : Tamu acara <b>dapat</b> memilih acara anda</small><br>
+                    <small>B. Tidak Aktif : Tamu acara <b>tidak dapat</b>  memilih acara anda</small>
                 </div>
                 <div class="card-footer">
 

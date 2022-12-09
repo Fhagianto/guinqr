@@ -25,22 +25,22 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                {{-- <h3>{{$acaramC}}</h3> --}}
+                <h3>{{$i}}</h3>
 
-                <p>Acara Manage Data</p>
+                <p>Total Tamu</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/userunit/tamuunit-list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-4 col-6">
+          {{-- <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                {{-- <h3>{{$unitmC}}<sup style="font-size: 20px"></sup></h3> --}}
+                <h3>{{$unitmC}}<sup style="font-size: 20px"></sup></h3>
                 <p>All Unit Data</p>
               </div>
               <div class="icon">
@@ -48,13 +48,13 @@
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
-          <div class="col-lg-4 col-6">
+          {{-- <div class="col-lg-4 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                {{-- <h3>{{$usermC}}</h3> --}}
+                <h3>{{$usermC}}</h3>
 
                 <p>User Manage</p>
               </div>
@@ -63,7 +63,7 @@
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
         {{--   <div class="col-lg-3 col-6">
             <!-- small box -->
