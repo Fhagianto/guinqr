@@ -14,7 +14,7 @@
                     <div class="col">
                         <div class="card card-outline card-secondary">
                             <div class="card-header">
-                                <h3 class="card-title">Acara Detail</h3>
+                                <h3 class="card-title">Unit Detail</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row">

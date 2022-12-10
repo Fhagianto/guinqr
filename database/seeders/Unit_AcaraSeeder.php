@@ -56,7 +56,7 @@ class Unit_AcaraSeeder extends Seeder
                 'email_acara' => 'humas@gmail.com',
                 'tgl_start'=> now(),
                 'tgl_end'=> now(),
-                'id_user_acara'=> '4',
+                'id_user_acara'=> '3',
                 'status'=>'1',
             ],
             [
@@ -74,7 +74,7 @@ class Unit_AcaraSeeder extends Seeder
                 'email_acara' => 'humas@gmail.com',
                 'tgl_start'=> now(),
                 'tgl_end'=> now(),
-                'id_user_acara'=> '4',
+                'id_user_acara'=> '3',
                 'status'=>'1',
             ],
             [
@@ -83,7 +83,7 @@ class Unit_AcaraSeeder extends Seeder
                 'email_acara' => 'humas@gmail.com',
                 'tgl_start'=> now(),
                 'tgl_end'=> now(),
-                'id_user_acara'=> '4',
+                'id_user_acara'=> '3',
                 'status'=>'1',
             ],
             ];

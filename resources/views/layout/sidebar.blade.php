@@ -62,19 +62,19 @@
                    </li>
                  </ul>
                </li> --}}
-               <li class="nav-header ">Manage Environtment</li>
+               <li class="nav-item">
+                <a href="/superadmin/unitmanage/" class="nav-link {{Request::is('superadmin/unitmanage') ? 'active':''}}">
+                <i class="nav-icon fas fa-computer"></i>
+                <p>Unit Management</p>
+                </a>
+               </li>
                <li class="nav-item">
                  <a href="/superadmin/acaramanage" class="nav-link {{Request::is('superadmin/acaramanage') ? 'active':''}}">
                  <i class="nav-icon fas fa-clipboard"></i>
-                 <p>Acara</p>
+                 <p>Manage Acara</p>
                  </a>
               </li>
-               <li class="nav-item">
-                 <a href="/superadmin/unitmanage/" class="nav-link {{Request::is('superadmin/unitmanage') ? 'active':''}}">
-                 <i class="nav-icon fas fa-computer"></i>
-                 <p>Unit</p>
-                 </a>
-              </li>
+              
                @endcan
                @can('isUserunit')
                <li class="nav-header ">Menu

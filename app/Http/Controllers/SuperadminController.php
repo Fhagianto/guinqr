@@ -75,7 +75,7 @@ class SuperadminController extends Controller
     public function acaramcatch($id)
     {
         $acaramcatch = acara::with('usermanage')->where('id_acara', $id)->first();
-        //dd($acaramcatch);
+       //dd($acaramcatch);
         return response()->json([
             'status'=>200,
             'acaramcatch'=> $acaramcatch

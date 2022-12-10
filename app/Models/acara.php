@@ -23,6 +23,6 @@ class acara extends Model
         return $this->hasMany(TamuAcara::class);
     }
     public function usermanage(){
-        return $this->belongsTo(UserManage::class,'id_user_acara',"id");
+        return $this->belongsTo(UserManage::class,'id_user_acara','id');
     }
 }

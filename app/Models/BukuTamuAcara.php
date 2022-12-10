@@ -16,7 +16,6 @@ class BukuTamuAcara extends Model
         'id_user_ci',
         'id_user_co',
     ];
-
     public function TamuAcara(){
         return $this->belongsTo(TamuAcara::class,'id_tamu_acara','id_tamu_acara');
     }

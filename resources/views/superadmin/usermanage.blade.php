@@ -30,6 +30,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Name</th>
                                     <th>Username</th>
                                     <th>Email</th>
@@ -38,10 +39,14 @@
                                     <th style="text-align: center;">Action</th>
                                 </tr>
                             </thead>
+                            @php
+                                $a=1;
+                            @endphp
                             <tbody>
                                 @if ($userm->count() > 0)
                                     @foreach ($userm as $userm1)
                                         <tr>
+                                            <td>{{$a++}}</td>
                                             <td>{{ $userm1->name }}</td>
                                             <td>{{ $userm1->username }}</td>
                                             <td>{{ $userm1->email }}</td>
