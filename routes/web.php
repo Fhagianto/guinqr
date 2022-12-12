@@ -55,7 +55,9 @@ Route::group(['middleware' => ['auth:user,unit']], function(){
         Route::delete('superadmin/usermanage-delete',[SuperadminController::class,'deleteUser'])->name('usermanage-delete');
 
         Route::get('superadmin/acaramanage',[SuperadminController::class,'acaramanage'])->name('acaramanage');
+        Route::post('superadmin/acaramanage-add',[SuperadminController::class,'storeAcara'])->name('acaramanage-add');
         Route::get('acaram-catch/{id}',[SuperadminController::class,'acaramcatch'])->name('acaram-catch');
+        Route::put('superadmin/acaramanage-update',[SuperadminController::class,'updateAcara'])->name('acaramanage-update');
         Route::delete('superadmin/acaram-delete',[SuperadminController::class,'deleteAcaram'])->name('acaram-delete');
 
         Route::get('superadmin/unitmanage',[SuperadminController::class,'unitmanage'])->name('unitmanage');
@@ -71,6 +73,7 @@ Route::group(['middleware' => ['auth:user,unit']], function(){
         Route::get('tamuacara-catch/{id}',[UserunitController::class,'tamuacaraListcatch'])->name('tamuacara-catch');
 
         Route::get('userunit/tamuunit-list',[UserunitController::class,'tamuunitList'])->name('tamuunit-list');
+        Route::put('userunit/tamuunit-list-update',[UserunitController::class,'tamuunitListUpdate'])->name('tamuunit-list-update');
         Route::get('tamuunitl-catch/{id}',[UserunitController::class,'tamuunitListcatch'])->name('tamuunitl-catch');
     });
     Route::group(['middleware' => ['cek_login:useracara']], function(){

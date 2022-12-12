@@ -7,6 +7,7 @@ use App\Models\TamuUnit;
 use App\Models\Unit;
 use App\Models\UserManage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SuperadminController extends Controller
@@ -63,6 +64,20 @@ class SuperadminController extends Controller
         $unitm->save();
         return redirect()->back()->with('message','New Data  '. $unitm['nama_unit'] .'  has been Add successfully');
     }
+    public function storeAcara(Request $request){
+
+        $a = Auth::guard('user')->user();
+        $acaram = new acara();
+        $acaram->nama_acara = $request->nama_acara;
+        $acaram->keterangan = $request->keterangan;
+        $acaram->email_acara = $request->email;
+        $acaram->tgl_start = $request->tgl_start;
+        $acaram->tgl_end = $request->tgl_end;
+        $acaram->id_user_acara = $a->id;
+        $acaram->status = $request->status;
+        $acaram->save();
+        return redirect()->back()->with('message','New Data  '. $acaram['nama_acara'] .'  has been Add successfully');
+    }
 
     public function editUser($id)
     {
@@ -118,6 +133,20 @@ class SuperadminController extends Controller
         $unitm->keterangan = $request->ket;
         $unitm->update();
         return redirect()->back()->with('message','New Data  '. $unitm['nama_unit'] .'  has been Updated successfully');
+    }
+    public function updateAcara(Request $request){
+        $a = Auth::guard('user')->user();
+        $acara_id = $request->acara_id;
+        $acaram = acara::find($acara_id);
+        $acaram->nama_acara = $request->nama_acara;
+        $acaram->keterangan = $request->keterangan;
+        $acaram->email_acara = $request->email;
+        $acaram->tgl_start = $request->tgl_start;
+        $acaram->tgl_end = $request->tgl_end;
+        $acaram->id_user_acara = $a->id;
+        $acaram->status = $request->status;
+        $acaram->update();
+        return redirect()->back()->with('message','New Data  '. $acaram['nama_acara'] .'  has been Updated successfully');
     }
 
     public function deleteUser(Request $request)

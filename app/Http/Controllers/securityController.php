@@ -106,7 +106,7 @@ class securityController extends Controller
         $data = BukuTamuAcara::with('TamuAcara.acara')->get();
         return view('security.tamuacara')->with('data',$data);
     }
-
+//
     public function COunit(Request $request){
         BukuTamuUnit::where('id_buku_tamu_unit', $request->id_buku_tamu_unit)
         ->update(['cek_out' => now(),'id_user_co'=> $request->id_user]);

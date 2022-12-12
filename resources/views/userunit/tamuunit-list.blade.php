@@ -29,7 +29,7 @@
                                             <tr>
                                                 <td>Username</td>
                                                 <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                                <td>{{ $unitshow->keterangan }}</td>
+                                                <td>{{ $unitshow->username }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Keterangan</td>
@@ -44,7 +44,64 @@
                                             <tr>
                                                 <td>Status</td>
                                                 <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                                                <td>@if ($unitshow->status =="1")  Unit Tampilkan dari Tamu @elseif ($acara->status =="2") Unit Tidak Tampil dari Tamu @endif</td>
+                                                <td>@if ($unitshow->status =="1")  Unit di Tampilkan @elseif ($unitshow->status =="2") Unit Tidak Tampilkan @endif</td>
+                                            </tr>
+                                            <tr> 
+                                            @if (session()->has('message'))
+                                                <div class="alert alert-success text-center">{{ session('message') }}</div>
+                                            @endif
+                                                <div class="modal inmodal fade" id="modal-edit-ini" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-xs">
+                                                    <form name="frm_edit" id="frm_edit" class="form-horizontal" action="{{route('tamuunit-list-update')}}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Edit Status Unit</h4>
+                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <div class="form-group row">
+                                                            <label for="level" class="col-3">Status</label>
+                                                            <div class="col-9">
+                                                                @if($unitshow->status == 1)
+                                                                <select class="form-control" id="status1" class="form-control" name="status" aria-placeholder="pilihlevel" required>
+                                                                <option value="1">Tampilkan Unit Dari Tamu</option>
+                                                                <option value="2">Sembuyikan Unit Dari Tamu</option>
+                                                                @error('status')
+                                                                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                                                                @enderror
+                                                                </select>
+                                                                @endif
+                                                                @if($unitshow->status == 2)
+                                                                <select class="form-control" id="status1" class="form-control" name="status" aria-placeholder="pilihlevel" required>
+                                                                <option value="2">Sembuyikan Unit Dari Tamu</option>
+                                                                <option value="1">Tampilkan Unit Dari Tamu</option>
+                                                                @error('status')
+                                                                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                                                                @enderror
+                                                                </select>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="a" class="col-3"></label>
+                                                            <div class="col-9">
+                                                                <button type="submit" id="a" class="btn btn-sm btn-primary">Update Status</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                    </form>
+                                                    </div>
+                                                  </div>
+                                                <td><br>
+                                                    <button 
+                                                     type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                     data-target="#modal-edit-ini">
+                                                     Edit Status
+                                                    </button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -76,96 +133,99 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <h5 style="float: left;"><strong>All Tamu Unit Data</strong></h5>
-                      {{--   <button class="btn btn-sm btn-primary" style="float: right;" data-toggle="modal" data-target="#addStudentModal">Add New Users</button> --}}
-                    </div>
-                    <div class="card-body">
-                        @if (session()->has('message'))
-                            <div class="alert alert-success text-center">{{ session('message') }}</div>
-                        @endif
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>Keperluan</th>
-                                    <th>Instansi</th>
-                                    <th>Unit yang Di Tuju</th>
-                                    <th style="text-align: center;">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($tamuunitl->count() > 0)
-                                    @foreach ($tamuunitl as $tamuunitl1)
-                                        <tr>
-                                            <td>{{ $tamuunitl1->nama }}</td>
-                                            <td>{{ $tamuunitl1->keperluan }}</td>
-                                            <td>{{ $tamuunitl1->instansi }}</td>
-                                            <td>{{ $tamuunitl1->unit->nama_unit }}</td>
-                                        
-                                            <td style="text-align: center;">
-                                                <button type="button" class="btn btn-warning viewbtn btn-sm" value="{{$tamuunitl1->id_tamu_unit}}" >View Detail</button>
-                                              {{--   <button type="button" class="btn btn-danger dltbtn btn-sm" value="{{$unitl1->id}}" >Delete</button> --}}
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="4" style="text-align: center;"><small>No Data Found</small></td>
-                                    </tr>
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>No</th>
+                              <th>Nama</th>
+                              <th>Keperluan</th>
+                              <th>Instansi</th>
+                              <th>Check In</th>
+                              <th>Check Out</th>
+                              <th style="text-align: center;">Action</th>
+                          </tr>
+                      </thead>
+                      @php $no = 1; @endphp
+                      <tbody>
+                          @foreach ($tamuunitl as $value)
+                          <tr>
+                              <td>{{ $no++ }}</td>
+                              <div class="modal inmodal fade" id="modal-view-@php echo $no @endphp" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-xs">
+                                <form name="frm_edit" id="frm_edit" class="form-horizontal" action="" method="POST">
+                                    @csrf
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Details Tamu Unit</h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Nama</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="nama" id="nama" class="form-control" disabled value='{{ $value->TamuUnit->nama }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Keperluan</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="keperluan" id="keperluan" class="form-control" disabled value='{{ $value->TamuUnit->keperluan }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Instansi</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="instansi" id="instansi" class="form-control" disabled value='{{ $value->TamuUnit->instansi }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Unit Yang Di Tuju</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="" id="no_badge" class="form-control" disabled value='{{ $value->TamuUnit->unit->nama_unit }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Check In</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="no_badge" id="no_badge" class="form-control" disabled value='{{ $value->cek_in }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Check Out</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="no_badge" id="no_badge" class="form-control" disabled value='{{ $value->cek_out }}'>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-5 control-label">Nomor Badge</label>
+                                                <div class="col-lg-12">
+                                                    <input type="text" name="no_badge" id="no_badge" class="form-control" disabled value='{{ $value->no_badge }}'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                              </div>
+                              <td>{{ $value->TamuUnit->nama }}</td>
+                              <td>{{ $value->TamuUnit->keperluan }}</td>
+                              <td>{{ $value->TamuUnit->instansi }}</td>
+                              <td>{{ $value->cek_in }}</td>
+                              <td>{{ $value->cek_out }}</td>
+                              <td style="text-align: center;">
+                              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-view-@php echo $no @endphp" data-id="{{$value->id_buku_tamu_acara}}">View Details</button>
+                              </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-            {{-- </div> --}}
        {{--  </div> --}}
     {{-- </div> --}}
     
     {{-- modal --}}
-    <div class="modal fade" id="exampleModal2" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Acara Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-                                <th>Nama</th>
-                                <td><html><input type="text" class="form-control" id="1" disabled></html></td>
-                            </tr>
-                          
-                            <tr>
-                                <th>Keperluan</th>
-                                <td><html><input type="text" class="form-control" id="2" disabled></html></td>
-                            </tr>
-                            <tr>
-                                <th>Instansi</th>
-                                <td><html><input type="text" class="form-control" id="4" disabled></html></td>
-                            </tr>
-                            <tr>
-                                <th>Unit yang Di Tuju</th>
-                                <td><html><input type="text" class="form-control" id="5" disabled></html></td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td><html><input type="text" class="form-control" id="6" disabled></html></td>
-                            </tr>
-                            <tr>
-                                <th>No Telp</th>
-                                <td><html><input type="text" class="form-control" id="7" disabled></html></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 
    {{--  <div class="modal fade" id="deleteModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -193,7 +253,7 @@
     </div>  --}}
 @endsection
 @section('scripts')
-<script>
+{{-- <script>
   $(document).ready(function () {
 
    /*  $(document).on('click', '.dltbtn', function () {
@@ -205,26 +265,22 @@
     $(document).on('click', '.viewbtn', function () {
       
       var tamuunitl1_id = $(this).val();
-     /*  alert(acaram1_id); */
+   /*    alert(tamuunitl1_id); */
       $('#exampleModal2').modal('show');
       
       $.ajax({
         type: "GET",
         url: "/tamuunitl-catch/"+tamuunitl1_id,
         success: function (response) {
-           /* console.log(response.tamuunitListcatch.keperluan);   */
-          $('#1').val(response.tamuunitListcatch.nama);
-          $('#2').val(response.tamuunitListcatch.keperluan);
-          $('#4').val(response.tamuunitListcatch.instansi);
-          $('#5').val(response.tamuunitListcatch.unit.nama_unit);
-          $('#6').val(response.tamuunitListcatch.email);
-          $('#7').val(response.tamuunitListcatch.no_telpon); 
+           console.log(response.tamuunitListcatch.TamuUnit.nama);  
+      /*     $('#1').val(response.tamuunitListcatch.TamuUnit.nama); */
+      
          
         }
       });
     });
   });
-</script>
+</script> --}}
 @endsection
 
 

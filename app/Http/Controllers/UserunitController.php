@@ -26,9 +26,9 @@ class UserunitController extends Controller
     public function tamuunitList(Request $request)
     {
         $t=Auth::guard('unit')->user()->id_unit;
-        $tamuunitl = TamuUnit::with('unit')->where('id_unit', $t)->get();
+        $tamuunitl = BukuTamuUnit::with('TamuUnit.unit')->whereRelation('TamuUnit.unit', 'id_unit',$t)->get();
         $unitshow = Unit::all()->where('id_unit', $t)->first();
-        $count = TamuUnit::all()->where('id_unit', $t)->count();
+        $count = BukuTamuUnit::with('TamuUnit.unit')->whereRelation('TamuUnit.unit', 'id_unit', $t)->count();
         return view('userunit.tamuunit-list', ['tamuunitl' => $tamuunitl, 'unitshow' => $unitshow, 'count' => $count]);
     }
 
@@ -38,14 +38,12 @@ class UserunitController extends Controller
         return view('userunit.tamuacara-list', ['tamuacaral' => $tamuacaral]);
     }
 
-    public function tamuunitListcatch($id)
-    {
-        $tamuunitListcatch = TamuUnit::with('unit')->where('id_tamu_unit', $id)->first();
-        return response()->json([
-            'status'=>200,
-            'tamuunitListcatch'=> $tamuunitListcatch
-        ]);
-
+    public function tamuunitListUpdate(Request $request){
+        $t = Auth::guard('unit')->user()->id_unit;
+        $ta = Unit::find($t);
+        $ta->status = $request->status;
+        $ta->update();
+        return redirect()->back()->with('message','New Status has been Updated successfully');
     }
     public function tamuacaraListcatch($id)
     {
